@@ -1,0 +1,126 @@
+.pricing {
+    &__tab {
+        background: #EFF3FA;
+        width: 230px;
+        @extend %p-8, %text-center;
+        margin-left: auto;
+        border-radius: 10px;
+
+        nav {
+            @extend %text-center;
+
+            .nav {
+                border-bottom: none;
+                @extend %flex, %justify-between;
+
+                button {
+                    background: none !important;
+                    border: none;
+                    padding: 10px 20px;
+
+                    &.active {
+                        background: #2D50CE !important;
+                        @extend %white-color;
+                        padding: 10px 20px;
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.accordion-item {
+    @extend %mb-30, %border-none-im;
+    @include add-prefix(border-radius, 4px);
+
+    .accordion-button {
+        @extend %px-20, %py-16,
+        %mb-0,
+        %text-600,
+        %bg-white,
+        %title-color,
+        %justify-between-im, %pointer, %text-capitalize, %font1;
+        box-shadow: 0px 8px 10px 0px #F5F7F8;
+
+        @include font-size(16px);
+
+        @include breakpoint(sm) {
+            @include font-size(20px);
+        }
+
+        .plus-icon {
+            @extend %w-40, %bg2,
+            %h-40,
+            %b-radius-4,
+            %p-rel,
+            %transition;
+            margin-left: auto;
+
+            &:after {
+                @extend %abs,
+                %top-50,
+                %right-15;
+                width: 14px;
+                height: 2px;
+                @extend %bg-white;
+                transform: translate(-50%, -50%);
+            }
+
+            &:before {
+                @extend %abs,
+                %top-50,
+                %right-41;
+                width: 2px;
+                height: 14px;
+                @extend %bg-white;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &:after {
+            @extend %d-none;
+        }
+
+        &:focus {
+            border-color: none;
+            box-shadow: none;
+        }
+    }
+
+    .accordion-body {
+        @extend %px-20, %py-30;
+
+        p {
+            @extend %mp-0,
+            %text-500;
+            max-width: 432px;
+            color: #555;
+        }
+    }
+
+    .accordion-button:not(.collapsed) {
+        box-shadow: none;
+        @extend %transition, %bg2, %white-color, %py-10;
+        border-radius: inherit !important;
+
+        .plus-icon {
+            @extend %bg2, %transition;
+
+            &:before {
+                width: 14px;
+                height: 2px;
+
+            }
+
+            &:after {
+                background: #fff;
+            }
+
+        }
+    }
+
+    .accordion-body:not(.collapsed) {
+        box-shadow: 0px 8px 10px 0px #F5F7F8;
+    }
+}

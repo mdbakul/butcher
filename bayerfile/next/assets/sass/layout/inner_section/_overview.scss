@@ -1,0 +1,92 @@
+.overview {
+    @extend %bg-reno, %bg-center, %bg-cover;
+    @include padding(110px 0);
+
+
+    &__count {
+        @extend %mt-40, %flex, %gap-40;
+
+        .item {
+            @extend %flex, %align-items-center, %gap-20;
+            border: 1px solid #D0D4E0;
+            border-radius: 10px;
+            padding: 10px 25px;
+
+            .text {
+                h4 {
+                    @extend %white-color, %font1;
+
+                    span {
+                        @extend %white-color, %py-1, %d-inline-block, %font1, %text-600;
+                        font-size: 40px;
+                    }
+                }
+
+                p {
+                    @extend %white-color;
+                }
+            }
+        }
+    }
+
+
+    &__leftimg {
+        @extend %text-center, %rel;
+
+        .item {
+
+            @include breakpoint(xl) {
+                position: absolute;
+            }
+
+            img {
+                @extend %b-radius-10;
+            }
+
+            &.item1 {
+                @extend %left-45;
+
+                @include breakpoint(xl) {
+                    top: -200px;
+                }
+            }
+
+            &.item2 {
+                @extend %left-20, %d-none;
+
+                @include breakpoint(xl) {
+                    top: -180px;
+                    display: block;
+                }
+
+                img {
+                    @include breakpoint(xl) {
+                        border: 5px solid #1F368A;
+                    }
+                }
+            }
+
+            &.item3 {
+                @extend %left-35, %d-none;
+
+                @include breakpoint(xl) {
+                    top: 100px;
+                    display: block;
+                }
+
+                img {
+                    @include breakpoint(xl) {
+                        border: 5px solid #1F368A;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .row {
+        @include breakpoint(max-lg) {
+            flex-direction: column-reverse;
+        }
+    }
+}

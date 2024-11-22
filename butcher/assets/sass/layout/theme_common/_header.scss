@@ -1,0 +1,532 @@
+// header nav here
+
+.header {
+    z-index: 999;
+    position: absolute;
+    @extend %top-0, %left-0, %wd-100;
+
+
+    &__top {
+        @extend %px-40;
+
+        .left {
+            ul {
+                @include breakpoint(xl) {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 0;
+                    padding-left: 0;
+                }
+
+                li {
+                    @extend %py-13;
+
+                    @include breakpoint(xl) {
+                        list-style: none;
+                        display: flex;
+                        align-items: center;
+                        gap: 13px;
+                        padding-right: 25px;
+                        margin-right: 25px;
+                        border-right: 1px solid #EFEFEF;
+
+
+                    }
+
+                    &:last-child {
+
+                        @include breakpoint(xl) {
+                            border-right: none;
+                        }
+                    }
+
+                    .text {
+                        p {
+
+                            @include breakpoint(xl) {
+                                font-family: $font1;
+                                color: $color1;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .right {
+            @include breakpoint(xl) {
+                gap: 40px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+            }
+
+            .social {
+                @include breakpoint(xl) {
+                    gap: 15px;
+                    display: flex;
+                }
+
+                a {
+                    i {
+                        @extend %white-color;
+
+                        @include breakpoint(xl) {
+                            color: $white-color;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    &__bottom {
+        @extend %bg-white, %px-40;
+        box-shadow: 0px 4px 4px 0px rgba(229, 228, 228, 0.42);
+
+        &.header-fixed {
+            @extend %transition2;
+
+            @include breakpoint(xl) {
+                top: 0;
+                position: fixed;
+                max-width: inherit;
+                z-index: 9999;
+                width: 1320px;
+                box-shadow: 1px 1px 11px 3px rgba(215, 215, 215, 0.4);
+                transition: all 0.5s ease;
+            }
+
+            .ellepsis {
+                @extend %d-none;
+                @extend %transition;
+
+            }
+        }
+
+        @include breakpoint(max-xl) {
+            padding: 12px 0;
+        }
+
+        &--header2 {
+            @include breakpoint(xl) {
+                background: transparent;
+                box-shadow: none;
+                z-index: 999;
+            }
+
+            &.header-fixed {
+                @include breakpoint(xl) {
+                    background: $bg2;
+                    z-index: 999;
+                }
+
+                .ellepsis {
+                    @extend %d-none;
+                    @extend %transition;
+
+                }
+            }
+        }
+    }
+
+    &__menu {
+        @extend %flex, %align-items-center;
+
+        @include breakpoint(xl) {
+            justify-content: flex-end;
+        }
+
+        nav {
+            >ul {
+                @extend %align-items-center, %mb-0, %justify-end, %mp-0, %pl-0;
+
+                @include breakpoint(xl) {
+                    display: flex;
+                }
+
+                li {
+                    @extend %list-none, %p-rel;
+                    @include padding(10px 20px);
+
+                    @include breakpoint(xl) {
+                        @include padding(18px);
+                    }
+
+                    a {
+                        @extend %text-none, %d-block, %color3, %font1, %text-700;
+
+                        @include breakpoint(xl) {
+                            @include padding(13px 10px);
+                            display: inline-block;
+                        }
+
+                    }
+
+                    &.active2 {
+                        a {
+                            @extend %color2;
+                        }
+                    }
+
+                    ul {
+                        @extend %top-100;
+                        padding-left: 0;
+                        left: 0;
+                        @include transition(.5s);
+
+                        @include breakpoint(xl) {
+                            width: 250px;
+                            position: absolute;
+                            z-index: 1;
+                            opacity: 0;
+                            visibility: hidden;
+                            background: #fff;
+                            left: 30%;
+                            box-shadow: 0px 4px 4px 0px rgba(229, 228, 228, 0.42);
+                        }
+
+                        @include breakpoint(max-xl) {
+                            display: none;
+                        }
+
+                        li {
+                            padding: 5px 10px;
+
+                            @include breakpoint(xl) {
+                                border-bottom: 1px solid #BE1E2D1C;
+                            }
+
+                            a {
+                                @extend %px-12, %d-inline-block, %py-5, %wd-100;
+                            }
+
+                            &:hover {
+                                @include breakpoint(xl) {
+                                    background: $color2;
+                                }
+
+                                a {
+                                    @extend %white-color;
+                                }
+                            }
+
+                            &.active {
+                                @extend %bg2;
+
+                                a {
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        ul {
+                            left: 0;
+
+                            @include breakpoint(xl) {
+                                visibility: visible;
+                                opacity: 1;
+                            }
+                        }
+
+                        >a {
+                            color: #BE1E2D;
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+
+    &__mobilebar {
+        @extend %flex, %justify-center, %bg2;
+        @extend %p-10, %w-60, %pointer;
+        margin-left: auto;
+
+        i {
+            @extend %white-color, %pointer;
+            @include font-size(20px);
+        }
+    }
+
+    &--header2 {
+        position: absolute;
+        width: 100%;
+        z-index: 999;
+    }
+
+}
+
+.tpoffcanvas {
+    @extend %top-0, %bottom-0, %wd-100, %v-o-none, %bg-white, %px-15;
+    box-shadow: 0px 4px 4px 0px rgba(229, 228, 228, 0.42);
+    position: fixed;
+    right: -100%;
+    z-index: 999999;
+    scrollbar-width: none;
+    transition: 1s ease-in-out;
+    overflow-y: scroll;
+
+    @include breakpoint(sm) {
+        width: 550px;
+    }
+
+    &.opened {
+        @extend %right-0;
+        -webkit-transition: all .6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        -moz-transition: all .6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        transition: all .6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        transition-duration: 1s;
+    }
+
+    &.opened {
+        @extend %v-o-viseble;
+    }
+
+    &__body {
+        padding: 0 30px;
+    }
+
+    &__logo {
+        @extend %py-20;
+
+        a {
+            h5 {
+                @extend %white-color;
+            }
+        }
+    }
+
+    &__close-btn {
+        margin-left: auto;
+        @extend %w-50, %h-50, %lheight-50, %text-center, %bg2;
+
+        button {
+            background: none;
+            border: none;
+
+            i {
+                @include font-size(20px);
+                @extend %white-color;
+            }
+        }
+    }
+
+    &__header {
+        @extend %bg-white;
+        border-bottom: 1px solid #EDF1F8;
+    }
+
+    .tp-main-menu-mobile {
+        @include breakpoint(max-xl) {
+            margin-top: 50px;
+        }
+
+        nav {
+            @include breakpoint(max-xl) {
+                width: 100%;
+            }
+
+            ul {
+                li {
+                    @include breakpoint(max-xl) {
+                        width: 100%;
+                        border-right: 1px solid #EDF1F8;
+                        border-left: 1px solid #EDF1F8;
+                        border-bottom: 1px solid #EDF1F8;
+                    }
+
+                    &:first-child {
+                        border-top: 1px solid #EDF1F8;
+                    }
+
+                    a {
+
+                        @include breakpoint(max-xl) {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+
+                    ul {
+                        @include breakpoint(max-xl) {
+                            margin-top: 15px;
+                        }
+
+                        li {
+                            border-left: none;
+                            border-right: none;
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__allimg {
+        @extend %flex, %gap-5, %mt-40;
+
+        a {
+            img {
+                @extend %w-75, %h-78;
+            }
+        }
+    }
+
+    &__contact {
+        @extend %mt-40;
+
+        h5 {
+            @extend %mb-10;
+        }
+
+        ul {
+            @extend %mp-0, %pl-0;
+
+            li {
+                @extend %list-none, %mb-8;
+
+                a {
+                    @extend %text-none, %color1;
+                }
+
+                &:last-child {
+                    @extend %mb-0;
+                }
+            }
+        }
+    }
+
+    &__social {
+        @extend %mt-40;
+
+        h5 {
+            @extend %mb-10;
+        }
+
+        ul {
+            @extend %flex, %gap-10, %mp-0, %pl-0;
+
+            li {
+                @extend %list-none;
+
+                a {
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    @extend %text-center, %b-radius-20, %d-inline-block;
+                    border: 1px solid rgba(2, 11, 24, 0.1);
+                }
+            }
+        }
+    }
+}
+
+
+.menu-item-has-children {
+    >a {
+        @extend %rel;
+
+        &::after {
+            @extend %abs, %bg-black, %top-50, %w-10;
+            transform: translateY(-50%);
+            right: 10px;
+            height: 2px;
+        }
+
+        &::before {
+            @extend %abs, %bg-black, %h-10;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 14px;
+            width: 2px;
+            @include transition($transition2);
+        }
+
+        @include breakpoint(lg) {
+            &::after {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 10px;
+                right: -4px;
+                height: 2px;
+                background: $color3;
+            }
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 2px;
+                right: 0px;
+                height: 10px;
+                background: $color3;
+                @include transition($transition2);
+            }
+        }
+    }
+
+    &:hover {
+        >a {
+            &:before {
+                @include breakpoint(lg) {
+                    transform: translate(-50%, -50%) rotate(90deg);
+                    opacity: 0;
+                }
+            }
+
+            &::after {
+                background: #BE1E2D;
+            }
+        }
+    }
+
+    &.open {
+        >a {
+
+            &::after,
+            &::before {
+                @extend %pcolor;
+            }
+
+            &:before {
+                @include breakpoint(max-lg) {
+                    transform: translate(-50%, -50%) rotate(90deg);
+                    opacity: 0;
+
+                }
+            }
+        }
+    }
+
+    &.menu-item-has-children2 {
+        >a {
+            &::after {
+                @extend %bg-white;
+            }
+
+            &::before {
+                @extend %bg-white;
+            }
+        }
+
+        &:hover {
+            >a {
+                &::after {
+                    background: #fff;
+                }
+            }
+        }
+    }
+}

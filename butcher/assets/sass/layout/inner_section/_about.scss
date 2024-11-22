@@ -1,0 +1,291 @@
+.about {
+    @extend %rel;
+
+    .container {
+        >.row {
+            @include breakpoint(max-xl) {
+                flex-direction: column-reverse;
+            }
+        }
+    }
+
+    @include padding(115px 0);
+
+    @include breakpoint(lg) {
+        background: url('..//..//..//img/home1/about/shape3.png'),
+            url('..//..//..//img/home1/about/shape1.png');
+
+        background-repeat: no-repeat;
+        background-position: 0% 116%, 100% -30%;
+    }
+
+    position: relative;
+
+    @include breakpoint(xl) {
+        background-position: 0% 190%, 100% -30%;
+    }
+
+    &__content {
+        a {
+            @extend %mt-30;
+            @extend %white-color;
+            width: 180px;
+
+        }
+    }
+
+    &__contentlist {
+        @extend %mt-40;
+
+        ul {
+            @extend %mp-0, %flex, %pl-0;
+            gap: 12px 0;
+
+            @include breakpoint(max-md) {
+                flex-direction: column;
+            }
+
+            @include breakpoint(md) {
+                align-items: center;
+            }
+
+            li {
+                @extend %list-none;
+
+                @include breakpoint(md) {
+                    width: 50%;
+                }
+
+                svg {
+                    @extend %mr-10;
+                }
+            }
+        }
+
+        &--contentlist-p3 {
+            ul {
+                flex-direction: column;
+
+                li {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__ceo {
+        @extend %flex, %align-items-center, %gap-20, %mt-20;
+
+        @include breakpoint(sm) {
+            gap: 60px;
+        }
+
+        .item {
+            @extend %flex, %align-items-center, %gap-10;
+
+            .text {
+                h6 {
+                    @extend %font1, %mb-0;
+                }
+
+                span {
+                    @extend %color3, %font1;
+                }
+            }
+
+            &:last-child {
+                .thumb {
+                    @extend %w-45, %h-45, %bg2, %text-center;
+                    border-radius: 23px;
+                    line-height: 45px;
+
+                    i {
+                        @extend %white-color;
+                        transform: rotate(-35deg);
+                    }
+                }
+            }
+        }
+    }
+
+    &__innerimg {
+        @extend %rel;
+
+        .counteritem {
+            @extend %bg2, %abs, %top-4, %left-0, %flex, %px-40, %py-10, %align-items-center, %gap-20;
+            border-radius: 10px;
+
+            h2 {
+                @extend %white-color, %py-10;
+
+                span {
+                    @extend %white-color, %pb-3, %pt-2, %text-600;
+                    font-size: 40px;
+                }
+            }
+
+            >span {
+                @extend %white-color, %text-500, %font1, %text-left;
+                width: 110px;
+            }
+        }
+
+        &--innerimgpage2 {
+            @extend %mr-20;
+
+            img {
+                @extend %wd-100;
+                border-radius: 10px;
+            }
+
+            .counteritem {
+                top: 70px !important;
+            }
+
+        }
+    }
+
+    .bottomshape {
+        @include breakpoint(sm) {
+            position: absolute;
+            bottom: 115px;
+            right: 14%;
+        }
+    }
+
+    &__counter {
+        @extend %mt-50, %flex, %gap-45, %align-items-center;
+
+        .item {
+            @extend %flex, %gap-18, %align-items-center;
+
+            .text {
+                width: 150px;
+
+                h4 {
+                    @extend %wd-100, %mb-0;
+
+                    span {
+                        font-size: 30px;
+                        @extend %color1, %text-600, %py-2;
+                    }
+                }
+            }
+        }
+    }
+
+    &--page3 {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        @include breakpoint(xxxl) {
+            @include padding-top(220px);
+        }
+
+        .container {
+            >.row {
+                @include breakpoint(max-xl) {
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+    }
+
+    &__bullet {
+        @extend %abs;
+
+        &.bullet1 {
+            @extend %d-none;
+
+            @include breakpoint(xl) {
+                width: 10px;
+                height: 10px;
+                left: 55%;
+                top: 5%;
+                border-radius: 5px;
+                background: #FFC53C;
+                display: block;
+            }
+        }
+
+        &.bullet2 {
+            @extend %d-none;
+
+            @include breakpoint(xl) {
+                width: 10px;
+                height: 10px;
+                left: 5%;
+                top: 48%;
+                border-radius: 5px;
+                background: #00AB9D;
+                display: block;
+            }
+        }
+
+        &.bullet3 {
+            @extend %d-none;
+
+            @include breakpoint(xl) {
+                width: 10px;
+                height: 10px;
+                left: 48%;
+                top: 10%;
+                border-radius: 5px;
+                background: #EF495E;
+                display: block;
+            }
+
+        }
+
+        &.bullet4 {
+            @extend %d-none;
+
+            @include breakpoint(xl) {
+                width: 10px;
+                height: 10px;
+                right: 5%;
+                bottom: 10%;
+                border-radius: 5px;
+                background: #FFC53C;
+                display: block;
+            }
+
+        }
+
+        &--bulletpage2 {
+            &.bullet1 {
+                @include breakpoint(xl) {
+                    left: 60%;
+                    top: 8%;
+                }
+
+            }
+
+            &.bullet2 {
+                @include breakpoint(xl) {
+                    left: 5%;
+                    top: 49%;
+                }
+
+            }
+
+            &.bullet3 {
+
+                @include breakpoint(xl) {
+                    left: 49%;
+                    top: 10%;
+                }
+
+            }
+
+            &.bullet4 {
+                @include breakpoint(xl) {
+                    right: 5%;
+                    bottom: 10%;
+                }
+
+            }
+        }
+    }
+}

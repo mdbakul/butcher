@@ -1,0 +1,48 @@
+/* From Uiverse.io by aadium */
+.custom__btn {
+    @extend %bg2, %b-radius-4, %text-center;
+    border: 3px solid transparent;
+    transition: 1s;
+    width: 160px;
+    padding: 10px 15px;
+
+    &:hover {
+        background-color: transparent;
+        border: 3px solid #BE1E2D;
+        box-shadow: 0px 0px 27px 5px #BE1E2D;
+    }
+
+    .custom__inner {
+        @extend %white-color, %font2, %font-size-16, %text-800, %text-none, %hidden, %d-inline-block, %auto, %text-center;
+        border-right: 4px solid transparent;
+        white-space: nowrap;
+        margin: 0 auto;
+    }
+
+    &:hover .custom__inner {
+        @extend %text-center;
+        border-right: 4px solid #BE1E2D;
+        animation: letters 1.75s steps(22, end),
+            cursor .4s step-end infinite;
+    }
+
+    @keyframes letters {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 78%;
+        }
+    }
+
+    @keyframes cursor {
+        from {
+            border-color: transparent
+        }
+
+        50% {
+            border-color: #BE1E2D;
+        }
+    }
+}

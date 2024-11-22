@@ -1,0 +1,185 @@
+.case {
+    @extend %bg-reno, %bg-center, %bg-cover, %rel;
+    @include padding(100px 0 50px 0);
+
+    &__slider {
+        @extend %mt-60;
+    }
+
+    &__item {
+        @extend %rel;
+
+        @include breakpoint(md) {
+            height: 420px;
+            margin-bottom: 40px;
+        }
+
+        .thumb {
+            img {
+                @extend %wd-100;
+                border-radius: 10px;
+            }
+        }
+
+        .text {
+            @extend %bg-white, %hidden, %mb-20;
+            box-shadow: 0px 8px 10px 0px #F5F7F8;
+            padding: 30px 25px;
+            width: 100%;
+
+            @include breakpoint(md) {
+                padding: 10px 20px;
+                position: absolute;
+                z-index: 1;
+                left: 50%;
+                width: 272px;
+                border-radius: 5px;
+                bottom: -5%;
+                transform: translateX(-50%);
+            }
+
+            p {
+                @extend %color2, %text-500;
+            }
+
+            h6 {
+
+                a {
+                    @extend %text-none;
+                    @extend %text-500, %font1, %mt-5;
+                }
+            }
+
+            .icon {
+                a {
+                    @extend %abs, %bg2, %w-85, %h-85, %transition2;
+                    line-height: 85px;
+                    border-radius: 50%;
+                    top: 100%;
+                    right: -10%;
+
+                    svg {
+                        @extend %abs, %top-30, %left-20;
+                    }
+                }
+
+            }
+        }
+
+        &:hover {
+            .text {
+                .icon {
+                    a {
+                        top: 48%;
+                        right: -10%;
+                    }
+                }
+            }
+        }
+    }
+
+    .slick-prev,
+    .slick-next {
+        display: none !important;
+
+        @include breakpoint(xxl) {
+            top: -30% !important;
+            display: block !important;
+        }
+    }
+
+    .slick-next {
+        @include breakpoint(xxl) {
+            right: 3% !important;
+        }
+    }
+
+    .slick-prev {
+        @include breakpoint(xxl) {
+            left: 90% !important;
+        }
+    }
+
+
+    &__bullet {
+        @extend %abs;
+
+        &.bullet1 {
+            @extend %d-none;
+
+            @include breakpoint(xxxxl) {
+                width: 10px;
+                height: 10px;
+                left: 4%;
+                top: 15%;
+                border-radius: 5px;
+                background: #EF495E;
+                display: block;
+            }
+        }
+
+        &.bullet2 {
+            @extend %d-none;
+
+            @include breakpoint(xxxl) {
+                width: 10px;
+                height: 10px;
+                left: 6%;
+                bottom: 10;
+                border-radius: 5px;
+                background: #00AB9D;
+                display: block
+            }
+        }
+
+        &.bullet3 {
+            @extend %d-none;
+
+            @include breakpoint(xl) {
+                width: 10px;
+                height: 10px;
+                left: 70%;
+                top: 7%;
+                border-radius: 5px;
+                background: #FFC53C;
+                display: block;
+            }
+        }
+
+        &.bullet4 {
+            @extend %d-none;
+
+            @include breakpoint(xxxl) {
+                width: 10px;
+                height: 10px;
+                left: 50%;
+                top: 20%;
+                background: #EF495E;
+                border-radius: 5px;
+                display: none;
+            }
+        }
+
+        &.bullet5 {
+            @extend %d-none;
+
+            @include breakpoint(xxxxxl) {
+                top: 33%;
+                left: 200px;
+                display: block;
+            }
+        }
+
+        &.bullet6 {
+            @extend %d-none;
+
+            @include breakpoint(xl) {
+                top: 25%;
+                right: 150px;
+                display: block;
+            }
+        }
+
+
+    }
+}

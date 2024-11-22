@@ -1,0 +1,283 @@
+.banner {
+    @extend %rel;
+    @include padding(120px 0 240px 0);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &__content {
+        >span {
+            @extend %bg2, %d-inline-block, %white-color, %text-700, %px-20, %py-8, %font2;
+            border-radius: 50px;
+        }
+
+        h2 {
+            @extend %text-600, %my-8, %hidden;
+            @include font-size(55px);
+
+            @include breakpoint(xl) {
+                @include font-size(65px);
+                line-height: 74px;
+            }
+
+            span {
+                @include font-size(55px);
+                @extend %text-600, %color1, %d-inline-block;
+
+                span {
+                    display: inline-block;
+                }
+            }
+        }
+
+        p {
+            @include breakpoint(sm) {
+                width: 88%;
+            }
+        }
+
+        &--bannertwo_sytle {
+            span {
+                @extend %white-color;
+            }
+
+            h2 {
+                @extend %white-color;
+
+            }
+
+            p {
+                @extend %white-color;
+            }
+        }
+
+        &--content3 {
+            h2 {
+                @extend %white-color;
+                margin-bottom: 30px;
+            }
+
+            p {
+                @extend %white-color;
+                width: 100% !important;
+
+                @include breakpoint(md) {
+                    width: 60% !important;
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    &__btn {
+        @extend %mt-35, %flex, %gap-50, %align-items-center;
+
+        >a {
+            height: 56px;
+            width: 180px;
+
+            span {
+                width: 180px;
+                @extend %b-radius-4, %text-600, %b-radius-10, %text-center, %white-color;
+                font-size: 16px;
+
+            }
+        }
+
+        .icon {
+            @extend %flex, %align-items-center, %gap-20;
+
+            h6 {
+                color: #1E1E1E;
+            }
+        }
+
+        &--btn3 {
+            @extend %justify-center;
+        }
+
+        &--btn2 {
+            a {
+                span {
+                    color: $color1;
+                }
+
+
+
+                &:hover {
+                    span {
+                        @extend %white-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &__image {
+        @extend %d-none;
+
+        @include breakpoint(lg) {
+            bottom: 0;
+            z-index: 2;
+            position: absolute;
+            display: block;
+        }
+
+        @include breakpoint(lg) {
+            &::after {
+                position: absolute;
+                content: '';
+                top: 48px;
+                left: 36px;
+                width: 92%;
+                height: 92%;
+                background-image: url("..//..//..//img/home1/banner/circle.png");
+                background-repeat: no-repeat;
+                z-index: -1;
+
+            }
+        }
+    }
+
+    // banner two style start here
+    &__rightimage {
+        @extend %abs, %bottom-0;
+        right: 10%;
+
+        &--rightimage2 {
+            @include breakpoint(xl) {
+                right: -11%;
+            }
+
+            @include breakpoint(xxxxl) {
+                right: -8%;
+            }
+
+            @include breakpoint(xxxxxl) {
+                right: 8%;
+            }
+
+            img {
+                width: 80%;
+
+                @include breakpoint(xxxxl) {
+                    width: 90%
+                }
+
+                @include breakpoint(xxxxxl) {
+                    width: 100%
+                }
+            }
+        }
+    }
+
+    &--bannerstyletwo {
+        @include padding-top(250px);
+
+        .shapeicon {
+            @extend %abs;
+
+            &.shapeicon1 {
+                @extend %top-70;
+                left: -9%;
+            }
+
+            &.shapeicon2 {
+                @extend %top-25, %left-85;
+            }
+        }
+    }
+
+    &--baner3 {
+        @include padding(250px 0);
+        @extend %rel;
+        z-index: 1;
+
+        &::after {
+            @extend %abs, %top-0, %left-0, %wd-100, %hd-100;
+            background: linear-gradient(0deg, rgba(31, 42, 89, 0.80) 0%, rgba(31, 42, 89, 0.80) 100%);
+            z-index: -1;
+        }
+    }
+
+    .shape {
+        @extend %abs;
+
+        &.shape1 {
+            @extend %d-none;
+
+            @include breakpoint(sm) {
+                top: 16%;
+                left: 60%;
+                display: block;
+            }
+
+
+            @include breakpoint(md) {
+                left: 52%;
+            }
+        }
+
+        &.shape2 {
+            @extend %d-none;
+
+            @include breakpoint(xxxl) {
+                top: 42%;
+                left: 53%;
+                display: block;
+            }
+
+        }
+
+        &.shape3 {
+            @extend %d-none;
+
+            @include breakpoint(sm) {
+                top: 35%;
+                right: 10%;
+                display: block;
+            }
+        }
+
+        &.shape4 {
+            @extend %d-none;
+
+            @include breakpoint(lg) {
+                bottom: 15%;
+                right: 8%;
+                display: block,
+            }
+        }
+
+        &.shape5 {
+            @extend %d-none;
+
+            @include breakpoint(xxxl) {
+                top: -11%;
+                right: 0%;
+                display: block;
+            }
+        }
+
+        &.shape6 {
+            @extend %d-none;
+
+            @include breakpoint(xxxl) {
+                bottom: 0%;
+                left: 50%;
+                display: block;
+            }
+        }
+
+    }
+
+    .banner__leftshapepage3 {
+        @extend %abs, %left-0;
+        bottom: -9%;
+    }
+
+    .banner__rightshapepage3 {
+        @extend %abs, %right-0;
+        bottom: -9%;
+    }
+}

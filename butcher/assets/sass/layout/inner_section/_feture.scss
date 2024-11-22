@@ -1,0 +1,38 @@
+.feture {
+    @extend %rel;
+    margin-top: -120px;
+
+    &__wrapper {}
+
+    &__item {
+        @extend %rel;
+
+        img {
+            @extend %b-radius-10;
+        }
+
+        .title {
+            @extend %abs, %bottom-5, %left-50;
+            transform: translateX(-50%);
+            z-index: 1;
+
+            h5 {
+                @extend %white-color;
+            }
+        }
+
+        &:hover {
+            .title {
+                h5 {
+                    @extend %color2;
+                }
+            }
+        }
+
+    }
+
+    .slick-next,
+    .slick-prev {
+        display: none !important;
+    }
+}
