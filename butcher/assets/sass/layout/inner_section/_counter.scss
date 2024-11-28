@@ -1,6 +1,7 @@
 .counter {
     @extend %bg-reno, %bg-center, %bg-cover;
-    @include padding(100px 0);
+
+    @include padding(105px 0);
 
     &__inner {
         @extend %text-center;
@@ -27,8 +28,7 @@
         }
 
         h6 {
-            @extend %white-color, %font1, %text-400;
-            @include font-size(16px);
+            @extend %white-color, %font2, %text-800;
         }
     }
 }

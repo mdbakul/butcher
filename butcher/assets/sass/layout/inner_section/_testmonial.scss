@@ -1,23 +1,40 @@
 .testmonial {
-    @include padding(80px 0);
     @extend %bg-reno, %bg-center, %bg-cover, %rel;
+    @include padding(120px 0);
+
+    @include breakpoint(xxxl) {
+        @include margin-bottom(260px);
+        @include padding(100px 0 145px 0);
+    }
+
     z-index: 1;
 
     &__inner {
-        @extend %bg-white;
+        @extend %bg-white, %b-radius-10;
         @include padding(30px 25px);
-        border-radius: 8px;
+
+        ul {
+            @extend %mp-0, %flex, %pl-0, %mb-3;
+            gap: 4px;
+
+            li {
+                @extend %list-none;
+
+                i {
+                    @include font-size(12px);
+                    @extend %color2;
+
+                }
+            }
+        }
 
         .profile {
-            @extend %flex, %align-items-center;
-            gap: 25px;
+            @extend %align-items-center, %gap-15;
             @include margin-top(20px);
+            display: flex;
 
             .thumb {
-                @extend %w-80, %h-80, %hidden;
-                @include border-radius(50%);
-                border: 2px solid #1F2A59;
-                box-shadow: 0px 6px 24px 0px rgba(190, 190, 190, 0.40);
+                @extend %w-45, %h-45, %hidden, %b-radius-23;
 
                 img {
                     @extend %wd-100;
@@ -30,145 +47,31 @@
                 }
 
                 p {
-                    @extend %mt-0, %color4;
+                    @extend %mt-0, %color3;
                 }
 
-                ul {
-                    @extend %mp-0, %flex, %pl-0;
-                    gap: 4px;
-
-                    li {
-                        @extend %list-none;
-
-                        i {
-                            @include font-size(12px);
-                            color: #FFB421;
-
-                        }
-                    }
-                }
             }
         }
 
-        &--innerp3 {
-            background: transparent;
-            padding: 0 !important;
-
-            >p {
-                @extend %pt-10;
-            }
-
-            ul {
-                @extend %pl-0, %mb-0, %flex, %gap-5;
-
-                li {
-                    @extend %list-none;
-                    list-style: none;
-
-                    i {
-                        color: #FFB421;
-                    }
-                }
-            }
-
+        &:hover {
             .profile {
-                @extend %flex, %align-items-center, %justify-between;
-
-                .left {
-                    @extend %flex, %align-items-center, %gap-20;
-
-                    .thumb {
-                        border: 2px solid #FFF;
-                        @extend %w-60, %h-60, %b-radius-30;
-                        box-shadow: 0px 0px 24px 0px rgba(179, 181, 191, 0.42);
+                .name {
+                    h6 {
+                        @extend %color2;
                     }
 
-                    .text {
-                        h6 {
-                            @extend %mb-0;
-                        }
-                    }
                 }
-
             }
         }
     }
 
     &__wrapper {
-        @extend %mt-60;
+        margin-top: 55px;
 
         @include breakpoint(xxxl) {
-            max-width: 1051px;
-        }
-
-        &--wrapper2 {
-            @include breakpoint(mlg) {
-                max-width: 560px !important;
-            }
-
-        }
-
-    }
-
-    .slick-next,
-    .slick-prev {
-        display: none !important;
-    }
-
-    .menimg {
-        @include breakpoint(xl) {
+            position: absolute;
+            max-width: 1320px;
             z-index: -1;
-            position: absolute;
-            bottom: 0;
-            right: -6%;
-        }
-
-
-        @include breakpoint(xxxxxl) {
-            right: 3%;
-        }
-
-        img {
-            width: 90%;
-
-            @include breakpoint(xxxxxl) {
-                width: 98%;
-            }
-        }
-
-
-    }
-
-    &__page3rigtimg {
-        display: none !important;
-
-        @include breakpoint(mlg) {
-            right: -7%;
-            position: absolute;
-            bottom: 0;
-            display: block !important;
-        }
-
-        @include breakpoint(xxxl) {
-            right: 10%;
-        }
-
-        @include breakpoint(max-xxxl) {
-            overflow: hidden !important;
-        }
-
-        img {
-            width: 80%;
-
-            @include breakpoint(xxxl) {
-                width: 100%;
-            }
-        }
-    }
-
-    &--page3 {
-        @include breakpoint(max-xxxl) {
-            overflow: hidden;
         }
     }
 }

@@ -1,5 +1,6 @@
 .breadcamb {
-    @include padding(105px 0);
+    @include padding(280px 0 120px 0);
+    @extend %bg-reno, %bg-center, %bg-cover;
 
     &__content {
         @extend %text-center;
@@ -26,11 +27,8 @@
                         color: #fff !important;
                     }
 
-                    &:first-child {
-                        &::after {
-                            @extend %abs, %top-50, %w-10, %h-2, %bg-white;
-                            right: -16px;
-                        }
+                    &::before {
+                        color: #fff !important;
                     }
                 }
             }

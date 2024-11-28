@@ -1,0 +1,77 @@
+.technologies {
+    @extend %bg-reno-im, %bg-center-im, %bg-cover-im;
+
+    .row {
+        .col-lg-4 {
+            &:nth-child(2) {
+                .working__inner {
+                    .icon {
+                        .left {
+                            background: #8A93E6;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                .working__inner {
+                    .icon {
+                        .left {
+                            background: #6E4EB4;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__allitem {
+        @extend %mt-50, %flex, %gap-40;
+        flex-direction: column;
+
+        .item {
+            @extend %flex, %align-items-center, %gap-25;
+
+            .thumb {
+                @extend %bg2, %w-70, %h-70, %text-center;
+                @extend %b-radius-10;
+                line-height: 70px;
+
+                img {
+                    @extend %transition3;
+                }
+            }
+
+            .text {
+                width: 300px;
+
+                h6 {
+                    @extend %white-color, %mb-12;
+                }
+
+                p {
+                    @extend %white-color, %font1, %text-400, %font-size-15;
+                }
+            }
+
+            &:hover {
+                .thumb {
+                    img {
+                        transform: rotateY(360deg);
+                    }
+                }
+
+                .text {
+                    h6 {
+                        @extend %color2;
+                    }
+                }
+            }
+        }
+
+    }
+
+    &--aboutpage {
+        @include margin-bottom(250px);
+    }
+}

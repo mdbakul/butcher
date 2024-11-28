@@ -1,0 +1,30 @@
+.animals {
+    @extend %rel;
+    @include margin-bottom(1150px);
+
+
+    &__inner {
+        @extend %bg-white, %p-10, %b-radius-10;
+
+        .thumb {
+            img {
+                @extend %wd-100;
+            }
+        }
+
+        .text {
+            padding: 20px 15px;
+
+            h6 {
+                @extend %mb-10, %font2;
+            }
+        }
+    }
+
+    .section__wrapper {
+        @extend %abs;
+        max-width: 1320px;
+        margin-top: 60px;
+    }
+
+}

@@ -1,6 +1,6 @@
 /* From Uiverse.io by aadium */
 .custom__btn {
-    @extend %bg2, %b-radius-4, %text-center;
+    @extend %bg2, %b-radius-4, %text-center, %pointer;
     border: 3px solid transparent;
     transition: 1s;
     width: 160px;
@@ -44,5 +44,151 @@
         50% {
             border-color: #BE1E2D;
         }
+    }
+
+    &.custom__btn2 {
+        &:hover {
+            @extend %bg1;
+            box-shadow: none;
+            border: 3px solid #1F2A59;
+        }
+    }
+}
+
+// start play btn 
+.playbtn_animation {
+    @extend %rel, %flex, %align-items-center, %justify-center;
+    z-index: 1;
+
+    a {
+        @extend %w-50, %h-50, %bg-white, %lheight-52, %text-center;
+        border-radius: 25px;
+
+        i {
+            @extend %color2;
+            font-size: 20px;
+        }
+    }
+
+    &::before,
+    &::after {
+        @extend %abs, %bg2;
+        height: 8em;
+        width: 8em;
+        border: .5em solid #BE1E2D;
+        border-radius: 50%;
+        animation: playbtn_animation_79178 2.5s linear infinite;
+        z-index: -1;
+    }
+
+    &::after {
+        opacity: 0;
+        animation-delay: 1.2s;
+    }
+
+
+    @keyframes playbtn_animation_79178 {
+        0% {
+            border: .5em solid #BE1E2D;
+            transform: scale(0);
+            opacity: 1;
+        }
+
+        100% {
+            border: 0 solid #BE1E2D;
+            transform: scale(1);
+            opacity: 0;
+        }
+    }
+
+    &.playbtn_animation2 {
+
+        &::before,
+        &::after {
+            @extend %bg-white;
+            border: .5em solid #fff;
+            animation: playbtn_animation_7 2.5s linear infinite;
+
+        }
+
+        @keyframes playbtn_animation_7 {
+            0% {
+                border: .5em solid #fff;
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            100% {
+                border: 0 solid #ffff;
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+    }
+}
+
+
+
+
+// button 1
+
+.form_btn {
+    @extend %border-none, %font-size-18, %white-color, %text-capitalize, %bg1, %black-color, %text-center, %mt-35, %rel, %b-radius-5;
+    @include padding(15px 30px);
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.msg {
+    @extend %h-0, %w-0, %b-radius-2, %abs, %left-15, %top-25;
+}
+
+.form_btn:active {
+    transition: all 0.001s ease;
+    background-color: #5d9fcd;
+    box-shadow: #97989a 0 0 0 0;
+    transform: translateX(1px) translateY(1px);
+}
+
+.form_btn:hover .msg {
+    animation: msgRun 2s forwards;
+}
+
+@keyframes msgRun {
+    0% {
+        border-top: #d6d6d9 0 solid;
+        border-bottom: #f2f2f5 0 solid;
+        border-left: #f2f2f5 0 solid;
+        border-right: #f2f2f5 0 solid;
+    }
+
+    20% {
+        border-top: #d6d6d9 14px solid;
+        border-bottom: #f2f2f5 14px solid;
+        border-left: #f2f2f5 20px solid;
+        border-right: #f2f2f5 20px solid;
+    }
+
+    25% {
+        border-top: #d6d6d9 12px solid;
+        border-bottom: #f2f2f5 12px solid;
+        border-left: #f2f2f5 18px solid;
+        border-right: #f2f2f5 18px solid;
+    }
+
+    80% {
+        border-top: transparent 12px solid;
+        border-bottom: transparent 12px solid;
+        border-left: transparent 18px solid;
+        border-right: transparent 18px solid;
+    }
+
+    100% {
+        transform: translateX(150px);
+        border-top: transparent 12px solid;
+        border-bottom: transparent 12px solid;
+        border-left: transparent 18px solid;
+        border-right: transparent 18px solid;
     }
 }

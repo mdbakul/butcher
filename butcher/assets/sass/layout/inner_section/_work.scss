@@ -1,0 +1,44 @@
+.work {
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+
+    .section {
+        @extend %mb-60;
+    }
+
+    &__inner {
+        @extend %text-center;
+
+        .icon {
+            @extend %py-20, %text-center, %bg2, %auto, %b-radius-10;
+            width: 80px;
+
+            img {
+                transition: all 1s ease;
+            }
+        }
+
+        .text {
+            @extend %mt-26;
+
+            h6 {
+                @extend %mb-6;
+            }
+        }
+
+        &:hover {
+            .icon {
+
+                img {
+                    transform: rotateY(360deg);
+                }
+            }
+
+            .text {
+                h6 {
+                    @extend %color2;
+                }
+            }
+        }
+    }
+}

@@ -18,29 +18,8 @@
 
 
 .sponsor {
-    @include padding(100px 0);
-
-    @extend %bg-reno, %bg-center, %bg-cover;
-
-    h5 {
-        @extend %text-center, %mb-30, %white-color;
-
-        span {
-            @extend %white-color, %text-700;
-            font-size: 24px;
-        }
-
-    }
-
-    &__item {
-        img {
-            @extend %b-radius-6, %wd-100;
-        }
-    }
-
-    &__wrapper {
-        max-width: 1310x;
-    }
+    @extend %bg2;
+    @include padding(55px 0);
 
     .slick-next,
     .slick-prev {
@@ -50,6 +29,14 @@
     .slick-slide {
         margin-right: 8px !important;
         margin-left: 8px !important;
+    }
+
+    &__item {
+        text-align: center !important;
+    }
+
+    .slick-slide img {
+        display: inline-block;
     }
 }
 
@@ -90,8 +77,9 @@
 
     &::after {
         @extend %abs, %top-0, %left-0, %wd-100, %hd-100;
-        background: linear-gradient(0deg, rgba(31, 42, 89, 0.80) 0%, rgba(31, 42, 89, 0.80) 100%);
+        background: linear-gradient(0deg, rgba(5, 5, 4, 0.90) 0%, rgba(5, 5, 4, 0.90) 100%);
         z-index: -1;
+
     }
 
 }
@@ -218,4 +206,116 @@
             }
         }
     }
+}
+
+//newslatter 
+.newslatter {
+
+    @include breakpoint(max-xxxl) {
+        @include margin-bottom(100px);
+    }
+
+    @include breakpoint(xxxl) {
+        position: absolute;
+        left: 50%;
+        margin-top: -140px;
+        z-index: 99;
+        transform: translateX(-50%);
+        width: 1320px;
+    }
+
+
+    &__bg {
+        @extend %bg2, %py-70, %text-center, %b-radius-10;
+
+        p {
+            @extend %white-color, %font-size-16;
+        }
+
+        h3 {
+            @extend %white-color, %mb-0;
+        }
+    }
+
+    &__form {
+        @extend %text-center, %auto, %mt-30;
+        max-width: 550px;
+
+        form {
+            @extend %flex;
+
+            input {
+                @extend %bg-white;
+                width: calc(100% - 145px);
+                border-radius: 5px 0 0 5px;
+            }
+
+            ::placeholder {
+                color: #70717B;
+            }
+
+            button {
+                width: 145px;
+                @extend %bg1, %border-none, %white-color, %font2, %font-size-16, %text-700;
+                border-radius: 0 5px 5px 0;
+            }
+        }
+    }
+}
+
+// padding block
+
+.padding-block {
+    @include padding(120px 0);
+}
+
+.video {
+    @extend %rel;
+    @include margin-bottom(120px);
+
+    img {
+        @extend %b-radius-10;
+    }
+
+    .playbtn_animation {
+        @extend %abs, %left-50, %top-50;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+
+/* From Uiverse.io by vinodjangid07 */
+.footerbtn {
+    @extend %flex, %align-items-center, %justify-center, %pointer, %rel, %text-none;
+    transition-duration: .5s;
+
+}
+
+.tooltip {
+    @extend %abs, %opacity-0, %bg2, %white-color, %px-10, %py-5, %b-radius-5, %flex, %align-items-center, %justify-center;
+    top: -20px;
+    transition-duration: .2s;
+    pointer-events: none;
+    letter-spacing: 0.5px;
+}
+
+.tooltip::before {
+    @extend %abs, %w-10, %h-10, %bg2;
+    background-size: 1000%;
+    background-position: center;
+    transform: rotate(45deg);
+    bottom: -20%;
+    transition-duration: .3s;
+}
+
+.footerbtn:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    transition-duration: .3s;
+}
+
+.footerbtn:hover {
+    background-position: right;
+    transition-duration: .5s;
 }

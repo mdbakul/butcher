@@ -1,6 +1,4 @@
 .contact {
-    @include padding(120px 0);
-
     &__details {
         ul {
             @extend %pl-0, %mt-25;
@@ -30,6 +28,38 @@
                     @extend %mb-0;
                 }
             }
+        }
+    }
+}
+
+
+.book {
+    @extend %bg-reno-im, %bg-center-im, %bg-cover-im;
+
+    &__form {
+        @extend %bg2, %b-radius-10;
+        padding: 20px 10px;
+
+        @include breakpoint(sm) {
+            padding: 40px 30px;
+        }
+
+        h3 {
+            @extend %mb-40, %white-color;
+
+            @include breakpoint(xl) {
+                width: 60%;
+            }
+        }
+
+        select,
+        input {
+            background: #F2F6F9;
+            @extend %wd-100, %py-14, %b-radius-5, %px-15, %color3;
+        }
+
+        button {
+            @extend %white-color, %text-500;
         }
     }
 }

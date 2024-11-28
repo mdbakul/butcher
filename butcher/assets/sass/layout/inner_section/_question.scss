@@ -1,82 +1,19 @@
 .question {
-    @extend %p-rel;
-    @include padding(120px 0);
+
+    @include padding(120px 0 70px 0);
+
+    @include breakpoint(xxxl) {
+        @include padding(120px 0 240px 0);
+    }
 
     .section__wrapper {
-        @include breakpoint(lg) {
-            max-width: 536px;
-            @include margin-top(40px);
-        }
-
+        max-width: 550px;
     }
 
     &__rightimg {
-        .item {
-            @extend %text-center;
-
-            @include breakpoint(xl) {
-                position: absolute;
-            }
-
-            img {
-                border-radius: 10px;
-            }
-
-            &.item1 {
-                @include breakpoint(xl) {
-                    top: 220px;
-                    right: 60px;
-                }
-
-                @include breakpoint(xxxl) {
-                    right: 200px;
-                }
-
-                @include breakpoint(xxxxl) {
-                    right: 260px;
-                }
-            }
-
-            &.item2 {
-                @extend %d-none;
-
-                @include breakpoint(xl) {
-                    display: block;
-                }
-
-                img {
-                    @include breakpoint(xl) {
-                        border: 5px solid #FFF;
-                    }
-                }
-            }
-
+        img {
+            @extend %b-radius-10;
         }
     }
 
-    &--paddingservice {
-        @include padding(120px 0 180px 0);
-
-        @include breakpoint(sm) {
-            @include padding(120px 0 0 0);
-        }
-    }
-
-    .working__shape.shape6 {
-        @extend %d-none;
-
-        @include breakpoint(xxxxxl) {
-            display: block;
-            right: 110px;
-        }
-    }
-
-    .working__shape.shape7 {
-        @extend %d-none;
-
-        @include breakpoint(xxxxxl) {
-            display: block;
-            left: 110px;
-        }
-    }
 }

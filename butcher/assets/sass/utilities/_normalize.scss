@@ -1,12 +1,14 @@
 * {
 	@extend %mp-0;
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	overflow-x: hidden;
+	overflow-x: hidden !important;
 }
 
 :root {
@@ -24,7 +26,9 @@ optgroup,
 textarea {
 	font-size: $fs-base;
 	line-height: 1.5;
-	@extend %bg-white, %font1;
+	@extend %font1;
+	background: #FBFAFA;
+	overflow-x: hidden !important;
 }
 
 h1,
@@ -49,8 +53,10 @@ a h6 {
 	@extend %text-600;
 	line-height: 1.3;
 	font-family: $font2;
-	@extend %text-capitalize, %mp-0, %title-color;
+	@extend %text-capitalize, %title-color;
 	@include transition($transition);
+	margin: 0;
+	padding: 0;
 }
 
 h1 {
@@ -126,6 +132,9 @@ select {
 }
 
 ul {
+	margin: 0;
+	padding: 0;
+
 	li {
 		a {
 			&.facebook {
@@ -161,6 +170,6 @@ select {
 	background: rgba($white-color, $alpha: .1);
 
 	&::placeholder {
-		@extend %text-capitalize;
+		@extend %text-capitalize, %color3;
 	}
 }

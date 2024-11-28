@@ -1,42 +1,42 @@
 .footer {
-    @extend %rel;
-    @include padding(120px 0);
     @extend %bg-reno, %bg-center, %bg-cover;
+
+    @include breakpoint(xxxl) {
+        @include padding-top(270px);
+    }
 
     &__widgets {
         h6 {
-            @extend %mb-35;
+            @extend %mb-35, %white-color;
         }
 
-        .logo {
-            @extend %mb-30;
-        }
+        .footer__logo {
+            .logo {
+                @extend %mb-30;
+            }
 
-        .socialicon {
-            @extend %mt-30;
-
-            a {
-                @extend %w-35, %h-35, %b-radius-5, %text-center, %mr-15, %d-inline-block, %white-color;
-                line-height: 35px;
-
-                &:last-child {
-                    @extend %mr-0;
+            .text {
+                p {
+                    @extend %white-color;
                 }
+            }
 
-                &:nth-child(1) {
-                    background: $facebook;
-                }
+            .socialicon {
+                @extend %mt-30, %flex, %align-items-center;
 
-                &:nth-child(2) {
-                    background: $instagram;
-                }
+                a {
+                    @extend %mr-15, %white-color;
+                    line-height: 35px;
 
-                &:nth-child(3) {
-                    background: $linkedin;
-                }
+                    &:last-child {
+                        @extend %mr-0;
+                    }
 
-                &:nth-child(4) {
-                    background: $pinterest;
+                    &:hover {
+                        i {
+                            @extend %color2;
+                        }
+                    }
                 }
             }
         }
@@ -47,24 +47,27 @@
             }
 
             ul {
-                @extend %pl-0;
+                @extend %flex, %mp-0, %pl-0;
+                flex-direction: column;
+                gap: 18px;
 
                 li {
-                    @extend %list-none, %mb-20;
+                    @extend %list-none;
 
                     a {
-                        @extend %text-none, %font1, %text-400, %color4, %transition2;
-
-                        i {
-                            @extend %mr-8, %color2, %transition2;
-                        }
+                        @extend %text-none, %white-color, %ml-5;
                     }
 
-                    &:last-child {
-                        @extend %mb-0;
+                    i {
+                        @extend %mr-10, %white-color, %transition;
+                        @include font-size(15px);
                     }
 
                     &:hover {
+                        i {
+                            @extend %ml-5, %mr-5, %color2;
+                        }
+
                         a {
                             @extend %color2;
                         }
@@ -80,16 +83,11 @@
                 li {
                     @extend %list-none, %flex, %gap-15, %mb-22;
 
-                    .icon {
-                        @extend %w-35, %h-35, %bg-white, %text-center, %b-radius-17;
-                        line-height: 35px;
-                    }
-
                     .text {
                         width: calc(100% - 50px);
 
                         span {
-                            @extend %d-inline-block;
+                            @extend %d-inline-block, %white-color;
                             line-height: 24px;
 
                             @include breakpoint(sm) {
@@ -105,116 +103,19 @@
             }
         }
 
-        .popular_post {
-            ul {
-                @extend %pl-0;
+        .popular_gallery {
+            .innerimg {
+                @extend %b-radius-4;
 
-                li {
-                    @extend %list-none, %flex, %gap-20, %mb-20;
-
-                    .thumb {
-                        @extend %w-80, %h-80;
-
-                        img {
-                            @extend %b-radius-4;
-                        }
-                    }
-
-                    .text {
-                        h6 {
-                            @extend %mb-0, %text-500, %line-2;
-
-                            a {
-                                @extend %text-none;
-                                font-size: 18px;
-                            }
-
-                            &:hover {
-                                a {
-                                    @extend %color2;
-                                }
-                            }
-                        }
-
-                        span {
-                            font-size: 16px;
-                            @extend %text-400, %font1, %mt-3, %d-inline-block;
-                        }
-
-                        width: calc(100% - 100px);
-                    }
-
-                    &:last-child {
-                        @extend %mb-20;
-                    }
+                img {
+                    @extend %wd-100, %b-radius-4;
                 }
             }
-        }
-
-        &--widgets2 {
-            h6 {
-                color: #fff !important;
-            }
-
-            .footer_services {
-                ul {
-                    li {
-                        a {
-                            @extend %white-color, %text-400;
-
-                            i {
-                                @extend %white-color;
-                            }
-                        }
-
-                        &:last-child {
-                            @extend %mb-0;
-                        }
-
-                        &:hover {
-                            a {
-                                color: #2D50CE;
-
-                                i {
-                                    @extend %color2;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                &.leftpadding {
-                    @include breakpoint(xl) {
-                        padding-left: 70px
-                    }
-                }
-            }
-
-            .footer_links {
-                @include breakpoint(max-xl) {
-                    padding-left: 0 !important;
-                }
-            }
-
-            .footer_contact {
-                ul {
-                    @extend %pl-0;
-
-                    li {
-                        .text {
-                            span {
-                                @extend %white-color;
-                            }
-                        }
-                    }
-                }
-            }
-
         }
     }
 
     &__copyright {
-        @extend %abs, %bottom-0, %left-0, %wd-100, %bg1, %py-20;
+        @extend %abs, %bottom-0, %left-0, %wd-100, %bg-black, %py-20;
 
         p {
             @extend %white-color, %text-center;
@@ -225,65 +126,4 @@
         }
     }
 
-    &__bullet {
-        @extend %abs;
-
-        &.bullet1 {
-            @extend %d-none;
-
-            @include breakpoint(xl) {
-                width: 10px;
-                height: 10px;
-                left: 8%;
-                top: 10%;
-                border-radius: 5px;
-                background: #EF495E;
-                display: block;
-            }
-        }
-
-        &.bullet2 {
-            @extend %d-none;
-
-            @include breakpoint(xl) {
-                width: 10px;
-                height: 10px;
-                left: 20%;
-                bottom: 16%;
-                border-radius: 5px;
-                background: #FFC53C;
-                display: block;
-            }
-        }
-
-        &.bullet3 {
-            @extend %d-none;
-
-            @include breakpoint(xl) {
-                width: 10px;
-                height: 10px;
-                top: 10%;
-                right: 35%;
-                border-radius: 5px;
-                background: #EF495E;
-                display: block;
-            }
-
-        }
-
-        &.bullet4 {
-            @extend %d-none;
-
-            @include breakpoint(xl) {
-                width: 10px;
-                height: 10px;
-                right: 3%;
-                top: 10%;
-                border-radius: 5px;
-                background: #FFC53C;
-                display: block;
-            }
-        }
-
-    }
 }

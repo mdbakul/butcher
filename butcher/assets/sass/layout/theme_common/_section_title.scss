@@ -1,7 +1,7 @@
 .section {
     &__title {
         span {
-            @extend %color2, %text-600, %text-uppercase, %mb-5, %d-inline-block;
+            @extend %color2, %text-500, %text-uppercase, %d-inline-block;
         }
 
         h3 {

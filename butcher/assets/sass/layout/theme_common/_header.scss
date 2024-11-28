@@ -1,13 +1,19 @@
 // header nav here
-
 .header {
-    z-index: 999;
-    position: absolute;
-    @extend %top-0, %left-0, %wd-100;
-
+    @include breakpoint(xl) {
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        position: absolute;
+    }
 
     &__top {
-        @extend %px-40;
+        @extend %rel;
+
+        @include breakpoint(max-xxxl) {
+            overflow: hidden;
+        }
 
         .left {
             ul {
@@ -29,14 +35,18 @@
                         padding-right: 25px;
                         margin-right: 25px;
                         border-right: 1px solid #EFEFEF;
-
-
                     }
 
                     &:last-child {
 
                         @include breakpoint(xl) {
                             border-right: none;
+                        }
+                    }
+
+                    .icon {
+                        @include breakpoint(xl) {
+                            color: $color2;
                         }
                     }
 
@@ -63,77 +73,67 @@
             }
 
             .social {
-                @include breakpoint(xl) {
-                    gap: 15px;
-                    display: flex;
-                }
+                ul {
+                    @extend %pl-0, %flex, %mb-0;
 
-                a {
-                    i {
-                        @extend %white-color;
+                    li {
+                        @extend %list-none, %px-12, %py-10;
+                        border-right: 1px solid #EFEFEF;
 
-                        @include breakpoint(xl) {
-                            color: $white-color;
+                        a {
+                            @extend %w-30, %h-30, %b-radius-15, %text-center, %d-inline-block;
+                            background: #FAE2E4;
+                            line-height: 30px;
+
+                            i {
+                                font-size: 14px;
+
+                                @include breakpoint(xl) {
+                                    color: $color2;
+                                }
+                            }
                         }
+
+                        &:last-child {
+                            @include breakpoint(max-xxxl) {
+                                border: none;
+                            }
+                        }
+
                     }
                 }
             }
+        }
 
+        &:after {
+            @extend %abs, %bottom-0;
+            width: 1400px;
+            border-bottom: 1px solid #EFEFEF;
+
+            @include breakpoint(xl) {
+                left: -93px;
+            }
+
+            @include breakpoint(xxxl) {
+                left: -52px;
+            }
         }
     }
 
     &__bottom {
-        @extend %bg-white, %px-40;
-        box-shadow: 0px 4px 4px 0px rgba(229, 228, 228, 0.42);
+        @extend %bg-white;
 
-        &.header-fixed {
-            @extend %transition2;
-
-            @include breakpoint(xl) {
-                top: 0;
-                position: fixed;
-                max-width: inherit;
-                z-index: 9999;
-                width: 1320px;
-                box-shadow: 1px 1px 11px 3px rgba(215, 215, 215, 0.4);
-                transition: all 0.5s ease;
-            }
-
-            .ellepsis {
-                @extend %d-none;
-                @extend %transition;
-
-            }
+        @include breakpoint(xl) {
+            padding: 14px 0;
         }
 
         @include breakpoint(max-xl) {
             padding: 12px 0;
         }
-
-        &--header2 {
-            @include breakpoint(xl) {
-                background: transparent;
-                box-shadow: none;
-                z-index: 999;
-            }
-
-            &.header-fixed {
-                @include breakpoint(xl) {
-                    background: $bg2;
-                    z-index: 999;
-                }
-
-                .ellepsis {
-                    @extend %d-none;
-                    @extend %transition;
-
-                }
-            }
-        }
     }
 
     &__menu {
-        @extend %flex, %align-items-center;
+        @extend %flex, %align-items-center, %gap-35;
 
         @include breakpoint(xl) {
             justify-content: flex-end;
@@ -149,20 +149,25 @@
 
                 li {
                     @extend %list-none, %p-rel;
-                    @include padding(10px 20px);
-
-                    @include breakpoint(xl) {
-                        @include padding(18px);
-                    }
 
                     a {
-                        @extend %text-none, %d-block, %color3, %font1, %text-700;
+                        @extend %text-none, %d-block, %color1, %font1, %text-600, %font-size-16;
+                        padding: 10px;
 
                         @include breakpoint(xl) {
-                            @include padding(13px 10px);
+                            @include padding(6px 18px);
                             display: inline-block;
+                            padding: 22.5px 18px;
                         }
 
+                    }
+
+                    &:last-child {
+                        @extend %pr-0;
+
+                        a {
+                            @extend %pr-0;
+                        }
                     }
 
                     &.active2 {
@@ -172,7 +177,6 @@
                     }
 
                     ul {
-                        @extend %top-100;
                         padding-left: 0;
                         left: 0;
                         @include transition(.5s);
@@ -184,7 +188,7 @@
                             opacity: 0;
                             visibility: hidden;
                             background: #fff;
-                            left: 30%;
+                            top: 150px;
                             box-shadow: 0px 4px 4px 0px rgba(229, 228, 228, 0.42);
                         }
 
@@ -196,11 +200,11 @@
                             padding: 5px 10px;
 
                             @include breakpoint(xl) {
-                                border-bottom: 1px solid #BE1E2D1C;
+                                border-bottom: 1px solid #0054FC26;
                             }
 
                             a {
-                                @extend %px-12, %d-inline-block, %py-5, %wd-100;
+                                @extend %px-12, %d-inline-block, %py-5, %wd-100, %text-uppercase, %font1;
                             }
 
                             &:hover {
@@ -220,12 +224,16 @@
                                     color: #fff;
                                 }
                             }
+
+                            &:last-child {
+                                border: none;
+                            }
                         }
                     }
 
                     &:hover {
                         ul {
-                            left: 0;
+                            top: 100%;
 
                             @include breakpoint(xl) {
                                 visibility: visible;
@@ -242,23 +250,215 @@
                 }
             }
         }
+
     }
 
     &__mobilebar {
-        @extend %flex, %justify-center, %bg2;
-        @extend %p-10, %w-60, %pointer;
+        @extend %flex, %justify-center, %bg2, %mr-50;
+        @extend %w-60, %pointer, %h-60;
         margin-left: auto;
+        line-height: 65px;
 
         i {
             @extend %white-color, %pointer;
-            @include font-size(20px);
+            @include font-size(25px);
         }
     }
 
-    &--header2 {
-        position: absolute;
-        width: 100%;
-        z-index: 999;
+    &__cart {
+        @extend %w-25;
+        @extend %flex;
+        @extend %p-rel;
+        z-index: 9999;
+
+        .carticon {
+            z-index: 1;
+
+            a {
+                @extend %text-none;
+
+                i {
+                    @extend %color2;
+                    @include font-size(20px);
+                }
+            }
+
+            &:after {
+                @extend %abs, %text-center;
+                top: -15px;
+                left: 5px;
+                width: 20px;
+                height: 20px;
+                @extend %white-color;
+                @include border-radius(10px);
+                line-height: 20px;
+                content: '3';
+                background: $bg2;
+                font-size: 14px;
+            }
+        }
+
+        .cart-details {
+            @include padding(20px 15px);
+            @extend %bg-white, %abs, %flex, %align-items-center, %transition2;
+            box-shadow: 0px 0px 10px rgba(212, 212, 212, .58);
+            top: calc(100% + 30px);
+            right: 30px;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 9999;
+
+            &.cartopen {
+                @include breakpoint(max-esmm) {
+                    visibility: visible;
+                    opacity: 1;
+                    right: -70px;
+                }
+            }
+
+            .close {
+                margin-left: auto;
+
+                i {
+                    line-height: 25px;
+                    @extend %w-25, %h-25, %bg2, %text-center;
+                    @extend %pointer, %white-color;
+                }
+            }
+
+            .item {
+                @extend %flex, %align-items-center;
+                width: 270px;
+                gap: 18px;
+                border-bottom: 1px solid #BE1E2D52;
+                @extend %mb-15, %pb-15;
+
+                .thumb {
+                    width: 70px;
+                }
+
+                .right {
+                    width: calc(100% - 88px);
+                    @extend %flex, %align-items-center, %justify-between;
+
+                    .text {
+                        h6 {
+                            @extend %mb-2;
+
+                            a {
+                                @include font-size(15px);
+                                @extend %color1, %text-none;
+                            }
+                        }
+
+                        p {
+                            @extend %text-600, %color2;
+                        }
+
+                        span {
+                            @extend %bg-black, %d-inline-block, %white-color;
+                            @include font-size(11px);
+                            @extend %w-70, %h-20, %text-center;
+                            line-height: 20px;
+                        }
+                    }
+
+                    .cros {
+                        i {
+                            @extend %pointer, %color2;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .right {
+                        .text {
+                            h6 {
+                                a {
+                                    @extend %color2;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .total {
+                @extend %flex, %align-items-center, %justify-between;
+                width: 270px;
+
+                .subtotal {
+                    p {
+                        @extend %text-600;
+
+                        span {
+                            @extend %color2, %text-600;
+                        }
+                    }
+                }
+
+                .checkout {
+                    a {
+                        @extend %d-inline-block, %text-none;
+                        @include padding(5px 15px);
+                        @extend %bg2, %text-600, %white-color;
+                    }
+                }
+            }
+        }
+
+        @include breakpoint(esmm) {
+            &:hover {
+                .cart-details {
+                    right: -50px;
+                    right: 0;
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &__btn {
+        .custom__btn {
+            margin-top: 0 !important;
+            background: $bg2;
+            width: 200px;
+
+            &:hover {
+                box-shadow: none;
+            }
+        }
+    }
+
+    &__logo {
+        @extend %ml-50;
+
+        @include breakpoint(xl) {
+            margin-left: 0px;
+        }
+    }
+
+    &__fixed {
+        .header__bottom {
+            &.header-fixed {
+                @extend %transition2;
+
+                @include breakpoint(xl) {
+                    background: #fff;
+                    top: 0;
+                    position: fixed;
+                    max-width: inherit;
+                    width: 100% !important;
+                    z-index: 9999;
+                    box-shadow: 1px 1px 11px 3px rgba(215, 215, 215, 0.4);
+                    transition: all 0.5s ease;
+                    padding: 20px 40px;
+                }
+
+            }
+
+        }
     }
 
 }
@@ -453,13 +653,13 @@
             @include transition($transition2);
         }
 
-        @include breakpoint(lg) {
+        @include breakpoint(xl) {
             &::after {
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
                 width: 10px;
-                right: -4px;
+                right: 2px;
                 height: 2px;
                 background: $color3;
             }
@@ -469,7 +669,7 @@
                 top: 50%;
                 transform: translateY(-50%);
                 width: 2px;
-                right: 0px;
+                right: 6px;
                 height: 10px;
                 background: $color3;
                 @include transition($transition2);
@@ -480,7 +680,7 @@
     &:hover {
         >a {
             &:before {
-                @include breakpoint(lg) {
+                @include breakpoint(xl) {
                     transform: translate(-50%, -50%) rotate(90deg);
                     opacity: 0;
                 }
@@ -501,7 +701,7 @@
             }
 
             &:before {
-                @include breakpoint(max-lg) {
+                @include breakpoint(max-xl) {
                     transform: translate(-50%, -50%) rotate(90deg);
                     opacity: 0;
 

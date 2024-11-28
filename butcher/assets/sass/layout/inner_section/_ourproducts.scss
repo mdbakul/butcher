@@ -1,0 +1,426 @@
+.product {
+    @extend %bg-reno, %bg-center, %bg-cover, %rel;
+
+    @include padding(100px 0);
+
+    @include breakpoint(xxxl) {
+        @include margin-bottom(500px);
+        padding: 100px 0 225px 0;
+    }
+
+    z-index: 1;
+
+
+    &__inner {
+        @extend %rel, %b-radius-10, %bg-white, %hidden;
+
+        img {
+            @extend %b-radius-10;
+        }
+
+        .text {
+            @extend %abs, %left-50, %text-center, %wd-100;
+            transform: translateX(-50%);
+            z-index: 1;
+            bottom: 30px;
+
+            ul {
+                @extend %flex, %justify-center, %pl-0, %pb-0, %gap-3, %mb-0;
+
+                li {
+                    @extend %list-none;
+
+                    i {
+                        @extend %white-color;
+                    }
+                }
+            }
+
+            h5 {
+                @extend %white-color, %my-1;
+                font-size: 18px;
+            }
+
+            h6 {
+                @extend %white-color;
+            }
+
+            a {
+                @extend %bg-white, %b-radius-4, %mt-18, %text-center, %pointer, %text-none, %d-inline-block, %color1, %text-600;
+                border: 3px solid transparent;
+                transition: 0.5s;
+                width: 170px;
+                padding: 10px 15px;
+            }
+        }
+
+
+        &:after {
+            @extend %abs, %top-0, %left-0, %wd-100, %hd-100;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) -1.5%, rgba(27, 26, 26, 0.90) 76.5%);
+
+        }
+
+        &:hover {
+
+            img {
+                transform: scale(1.1);
+            }
+
+            .text {
+                ul {
+                    li {
+                        i {
+                            @extend %color2;
+                        }
+                    }
+                }
+            }
+
+            a {
+                background: $bg2;
+                @extend %white-color;
+
+            }
+        }
+    }
+
+    &__wrapper {
+        margin-top: 60px;
+
+        @include breakpoint(xxxl) {
+            position: absolute;
+            max-width: 1320px;
+            z-index: -1;
+        }
+    }
+
+    &--shopage {
+        @include margin-bottom(1150px);
+    }
+
+    &__pagi {
+        @extend %flex, %justify-center, %mt-65;
+
+        ul {
+            @extend %flex, %pl-0, %justify-center;
+            gap: 10px;
+
+            li {
+                @extend %list-none;
+
+                a {
+                    @extend %w-50, %h-50, %b-radius-10, %d-inline-block, %color1, %text-center, %text-600, %text-capitalize, %text-none;
+                    line-height: 50px;
+                    background: #F0F4F7;
+
+                    &.active {
+                        @extend %bg1, %white-color;
+                    }
+
+                    &:hover {
+                        @extend %bg1, %white-color;
+                    }
+
+                }
+
+                &:first-child {
+                    a {
+                        @extend %bg2;
+
+                        i {
+                            @extend %white-color;
+
+                        }
+
+                        &:hover {
+                            i {
+                                @extend %white-color;
+                            }
+                        }
+                    }
+                }
+
+                &:last-child {
+                    a {
+                        i {
+                            @extend %color1;
+
+                        }
+
+                        &:hover {
+                            @extend %bg2;
+
+                            i {
+                                @extend %white-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .custom__btn {
+        margin: 50px auto 0 auto;
+        width: 200px;
+        @extend %bg1;
+    }
+}
+
+
+
+.shopdetails {
+    @include padding(120px 0 50px 0);
+
+    &__innerthumb {
+        @extend %hidden, %text-center;
+
+        img {
+            @extend %wd-100;
+        }
+    }
+
+    &__smallthumb {
+        img {
+            @extend %wd-100;
+            cursor: pointer;
+        }
+    }
+
+    &__content {
+        max-width: 600px;
+        margin-left: auto;
+
+        h6 {
+            @include font-size(16px);
+            @include margin-top(3px);
+            @extend %black-color;
+
+            span {
+                @extend %text-500, %color1;
+            }
+        }
+
+        .rating {
+            @extend %flex, %align-items-center;
+
+            p {
+                @extend %my-0, %text-capitalize, %mr-5, %black-color, %text-600;
+            }
+
+            span {
+                i {
+                    @include font-size(12px);
+                    @extend %color1;
+                    margin-right: 2px;
+                }
+            }
+
+            a {
+                @extend %ml-5, %text-none;
+                color: #707070;
+            }
+        }
+
+        p {
+            @include margin(20px 0);
+
+        }
+
+        ul {
+            @extend %mp-0;
+
+            li {
+                @extend %list-none, %mb-10;
+
+                i {
+                    @extend %color1, %mr-5;
+                }
+
+                &:last-child {
+                    @extend %mb-0;
+                }
+            }
+        }
+
+        .countadd {
+            @extend %flex,
+            %align-items-center;
+            @include margin-top(40px);
+            gap: 20px;
+
+            .cart-plus-minus {
+                @extend %flex, %align-items-center;
+                gap: 10px;
+                padding: 7px;
+                border: 1px solid #F2F6F9;
+
+                input {
+                    border: 1px solid #F2F6F9;
+                    @include padding(0);
+                    @extend %w-40, %h-40;
+                    line-height: 40px;
+
+                    &.cart-plus-minus-box {
+                        @extend %text-center;
+                    }
+                }
+
+                .qtybutton {
+                    @extend %pointer, %w-40, %h-40, %text-center;
+                    border: 1px solid #F2F6F9;
+                    line-height: 40px;
+
+                    &:hover {
+                        @extend %bg2, %white-color;
+                    }
+                }
+            }
+
+            form {
+                width: 200px;
+
+                input {
+                    background: #fafafa;
+                    border: 1px solid #a2a2a24f;
+                    @include padding(13px);
+                }
+            }
+
+            a {
+                @extend %d-block;
+
+                @include breakpoint(xl) {
+                    @include padding(0px 142px);
+                    display: inline-block;
+                }
+
+                @extend %mt-0, %text-center;
+            }
+        }
+    }
+
+    &__wrapper {
+        border: 1px solid #F1F1F1;
+        @include padding(20px);
+    }
+}
+
+
+.cartdesk {
+    @include breakpoint(max-sm) {
+        @include padding-bottom(200px);
+    }
+
+    &__innerborder {
+        border: 1px solid #F1F1F1;
+    }
+
+    &__item {
+        border-bottom: 1px solid #F1F1F1;
+        @extend %mb-30, %pb-30;
+    }
+
+    &__img {
+        @extend %wd-80, %hidden, %hd-80;
+        @include border-radius(40px);
+
+        img {
+            @extend %w-100;
+        }
+    }
+
+    &__text {
+        .nametext {
+            @extend %flex,
+            %justify-between,
+            %align-items-center;
+
+            .profile {
+                h6 {
+                    @extend %mb-5;
+                }
+
+                span {
+                    @extend %text-400;
+                }
+            }
+
+            .allstar {
+                @include breakpoint(max-esm) {
+                    @include margin-top(5px);
+                }
+
+                .star {
+                    i {
+                        @extend %color1,
+                        %mp-0,
+                        %d-inline-block;
+                        @include font-size(13px);
+                    }
+                }
+            }
+        }
+
+        .destext {
+            @extend %mt-5;
+
+            p {
+                max-width: 649px;
+                @extend %text-400;
+            }
+        }
+    }
+
+    &__header {
+        nav {
+            .nav {
+                @extend %border-none;
+
+                .nav-link {
+                    @extend %border-none,
+                    %text-capitalize,
+                    %color1,
+                    %text-600, %bg2;
+                    @include padding(15px 50px);
+                    @include border-radius(0px);
+
+                    &.active {
+                        @extend %bg2,
+                        %white-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        ul {
+            @extend %mp-0;
+
+            li {
+                @include margin-bottom(5px);
+                @extend %list-none;
+
+                i {
+                    @extend %color1, %mr-10;
+                }
+            }
+        }
+    }
+
+    &__itemheading {
+        @include padding-bottom(20px);
+        @extend %text-center, %p-rel;
+
+        &:after {
+            @extend %abs, %top-100, %left-50;
+            width: 500px;
+            height: 1px;
+            background: #F1F1F1;
+            transform: translateX(-50%);
+        }
+    }
+
+}
