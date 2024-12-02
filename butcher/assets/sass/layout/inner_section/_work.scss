@@ -19,7 +19,18 @@
         }
 
         .text {
-            @extend %mt-26;
+            @extend %mt-15;
+
+            @include breakpoint(esmm) {
+                @include breakpoint(max-sm) {
+                    max-width: 350px;
+                    margin: 15px auto 0 auto;
+                }
+            }
+
+            @include breakpoint(sm) {
+                margin-top: 26px;
+            }
 
             h6 {
                 @extend %mb-6;
@@ -40,5 +51,9 @@
                 }
             }
         }
+    }
+
+    &--farm {
+        @include padding(100px 0);
     }
 }

@@ -1,12 +1,16 @@
 .animals {
-    @extend %rel;
-    @include margin-bottom(1150px);
 
+    @include breakpoint(xxxl) {
+        position: relative;
+        @include margin-bottom(1150px);
+    }
 
     &__inner {
         @extend %bg-white, %p-10, %b-radius-10;
 
         .thumb {
+            @extend %hidden;
+
             img {
                 @extend %wd-100;
             }
@@ -19,12 +23,29 @@
                 @extend %mb-10, %font2;
             }
         }
+
+        &:hover {
+            .text {
+                h6 {
+                    @extend %color2;
+                }
+            }
+
+            .thumb {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
     }
 
     .section__wrapper {
-        @extend %abs;
-        max-width: 1320px;
-        margin-top: 60px;
+        @extend %mt-60;
+
+        @include breakpoint(xxxl) {
+            position: absolute;
+            max-width: 1320px;
+        }
     }
 
 }

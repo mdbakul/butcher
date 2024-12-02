@@ -43,7 +43,7 @@
         box-shadow: 0px 8px 10px 0px #F5F7F8;
         background: #F8F5F0;
 
-        @include font-size(16px);
+        @include font-size(18px);
 
         @include breakpoint(sm) {
             @include font-size(20px);
@@ -59,22 +59,22 @@
 
             &:after {
                 @extend %abs,
-                %top-50,
-                %right-15;
+                %top-50;
                 width: 14px;
                 height: 2px;
                 @extend %bg-white;
+                right: 7px;
                 transform: translate(-50%, -50%);
             }
 
             &:before {
                 @extend %abs,
-                %top-50,
-                %right-43;
+                %top-50;
                 width: 2px;
                 height: 14px;
                 @extend %bg-white;
                 transform: translate(-50%, -50%);
+                right: 19px;
             }
         }
 
@@ -89,12 +89,11 @@
     }
 
     .accordion-body {
-        @extend %px-20, %py-20;
+        @extend %px-20, %py-25;
 
         p {
             @extend %mp-0,
-            %text-500;
-            max-width: 480px;
+            %text-400;
             color: #555;
         }
     }

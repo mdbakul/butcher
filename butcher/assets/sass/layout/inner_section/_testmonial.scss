@@ -43,7 +43,8 @@
 
             .name {
                 h6 {
-                    @extend %mb-0;
+                    @extend %mb-3;
+                    font-style: normal;
                 }
 
                 p {
@@ -66,12 +67,62 @@
     }
 
     &__wrapper {
-        margin-top: 55px;
+        margin-top: 50px;
 
         @include breakpoint(xxxl) {
             position: absolute;
             max-width: 1320px;
-            z-index: -1;
         }
     }
+
+
+    .slick-prev,
+    .slick-next {
+        display: none !important;
+        top: -120px;
+        z-index: 99999;
+
+        @include breakpoint(lg) {
+            display: block !important;
+        }
+    }
+
+    .slick-prev {
+        @include breakpoint(lg) {
+            left: 755px !important;
+        }
+
+        @include breakpoint(xl) {
+            left: 940px !important;
+        }
+
+        @include breakpoint(xxxl) {
+            left: 1140px !important;
+        }
+
+    }
+
+    .slick-next {
+        @include breakpoint(lg) {
+            left: 850px !important;
+        }
+
+        @include breakpoint(xl) {
+            left: 1020px !important;
+        }
+
+        @include breakpoint(xxxl) {
+            left: 1230px !important;
+        }
+    }
+
+    .slick-prev::before,
+    .slick-next::before {
+        @extend %color2;
+
+        @include breakpoint(lg) {
+            font-size: 70px;
+        }
+    }
+
 }

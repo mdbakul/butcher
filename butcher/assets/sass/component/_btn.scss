@@ -1,59 +1,34 @@
 /* From Uiverse.io by aadium */
-.custom__btn {
-    @extend %bg2, %b-radius-4, %text-center, %pointer;
-    border: 3px solid transparent;
-    transition: 1s;
-    width: 160px;
-    padding: 10px 15px;
+.custombtn {
+    a {
+        @extend %text-none, %white-color, %font2, %d-inline-block, %font-size-16, %b-radius-5, %text-800, %bg2, %border-none;
+        @extend %rel;
+        padding: 16px 51px;
 
-    &:hover {
-        background-color: transparent;
-        border: 3px solid #BE1E2D;
-        box-shadow: 0px 0px 27px 5px #BE1E2D;
-    }
-
-    .custom__inner {
-        @extend %white-color, %font2, %font-size-16, %text-800, %text-none, %hidden, %d-inline-block, %auto, %text-center;
-        border-right: 4px solid transparent;
-        white-space: nowrap;
-        margin: 0 auto;
-    }
-
-    &:hover .custom__inner {
-        @extend %text-center;
-        border-right: 4px solid #BE1E2D;
-        animation: letters 1.75s steps(22, end),
-            cursor .4s step-end infinite;
-    }
-
-    @keyframes letters {
-        from {
+        &::before {
+            @extend %abs;
+            height: 0;
             width: 0;
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255) 0%, rgba(255, 255, 255) 50%, rgba(150, 4, 31, 1) 50%, rgba(191, 4, 38, 1) 60%);
+
+            box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
         }
 
-        to {
-            width: 78%;
-        }
-    }
-
-    @keyframes cursor {
-        from {
-            border-color: transparent
+        &:hover::before {
+            width: 2.6em;
+            height: 2.6em;
+            @extend %color1;
         }
 
-        50% {
-            border-color: #BE1E2D;
-        }
-    }
-
-    &.custom__btn2 {
         &:hover {
-            @extend %bg1;
-            box-shadow: none;
-            border: 3px solid #1F2A59;
+            @extend %black-color;
         }
     }
 }
+
 
 // start play btn 
 .playbtn_animation {
@@ -61,21 +36,22 @@
     z-index: 1;
 
     a {
-        @extend %w-50, %h-50, %bg-white, %lheight-52, %text-center;
-        border-radius: 25px;
+        @extend %w-60, %h-60, %bg-white, %text-center;
+        border-radius: 30px;
+        line-height: 65px;
 
         i {
             @extend %color2;
-            font-size: 20px;
+            font-size: 25px;
         }
     }
 
     &::before,
     &::after {
-        @extend %abs, %bg2;
+        @extend %abs, %bg-white;
         height: 8em;
         width: 8em;
-        border: .5em solid #BE1E2D;
+        border: .5em solid #fff;
         border-radius: 50%;
         animation: playbtn_animation_79178 2.5s linear infinite;
         z-index: -1;
@@ -89,46 +65,19 @@
 
     @keyframes playbtn_animation_79178 {
         0% {
-            border: .5em solid #BE1E2D;
+            border: .5em solid #fff;
             transform: scale(0);
             opacity: 1;
         }
 
         100% {
-            border: 0 solid #BE1E2D;
+            border: 0 solid #fff;
             transform: scale(1);
             opacity: 0;
         }
     }
 
-    &.playbtn_animation2 {
-
-        &::before,
-        &::after {
-            @extend %bg-white;
-            border: .5em solid #fff;
-            animation: playbtn_animation_7 2.5s linear infinite;
-
-        }
-
-        @keyframes playbtn_animation_7 {
-            0% {
-                border: .5em solid #fff;
-                transform: scale(0);
-                opacity: 1;
-            }
-
-            100% {
-                border: 0 solid #ffff;
-                transform: scale(1);
-                opacity: 0;
-            }
-        }
-
-    }
 }
-
-
 
 
 // button 1

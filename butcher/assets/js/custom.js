@@ -1,6 +1,6 @@
 $(function () {
     "use strict";
-
+    // preload start here
     $('.preloader__logo img').addClass('logo-blink');
     function id(v) {
         return document.getElementById(v);
@@ -167,6 +167,15 @@ $(function () {
     });
 
 
+    //cart click effect
+    $(".carticon").on("click", function () {
+        $(".cart-details").addClass("opened");
+    });
+    $(".cartclose").on("click", function () {
+        $(".cart-details").removeClass("opened");
+    });
+
+
     //feture slider start here
     $('.feture__slider').slick({
         autoplay: true,
@@ -175,7 +184,7 @@ $(function () {
         slidesToScroll: 4,
         responsive: [
             {
-                breakpoint: 1200,
+                breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
@@ -184,17 +193,18 @@ $(function () {
                 }
             },
             {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToShow: 4,
+                    slidesToScroll: 4
+                }
+            },
+
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3
                 }
             }
         ]
@@ -214,13 +224,20 @@ $(function () {
         });
     });
 
-    // case slider start here
+    // testmonial slider
     $('.testmonial__slider').slick({
         autoplay: true,
         autoplaySpeed: 5000,
         slidesToShow: 3,
         slidesToScroll: 3,
         responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
             {
                 breakpoint: 768,
                 settings: {
@@ -231,6 +248,8 @@ $(function () {
         ]
     });
 
+
+    // sponsor start here
     $('.sponsor__slider').slick({
         autoplay: true,
         autoplaySpeed: 5000,
@@ -268,7 +287,6 @@ $(function () {
         ]
     });
 
-
     // shop slider start here
     $('.products__slidertop').slick({
         slidesToShow: 1,
@@ -281,64 +299,9 @@ $(function () {
         slidesToShow: 4,
         slidesToScroll: 1,
         asNavFor: '.products__slidertop',
-        dots: true,
-        centerMode: true,
         focusOnSelect: true
     });
 
-    var $grid = $(".casegallery__grid").isotope({
-        transitionDuration: "0.9s",
-
-    });
-    // sort items on button click
-    $(".item").on("click", function () {
-        var filterValue = $(this).attr("data-sort-by");
-        $grid.isotope({ filter: filterValue });
-    });
-
-    $(".item").click(function () {
-        $(this).addClass("active").siblings().removeClass("active");
-    });
-
-    // case slider start here
-    $('.client__slider').slick({
-        autoplay: true,
-        autoplaySpeed: 5000,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        responsive: [
-            {
-                breakpoint: 1400,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    });
-
-
-
-    // Search option start here
-    $(document).on("click", ".searchbar .icon svg, .closer", function () {
-        $(".orginalsearch").toggleClass("active");
-    });
 
     // shop cart + - start here
     var CartPlusMinus = $('.cart-plus-minus');
@@ -355,37 +318,6 @@ $(function () {
             }
         }
         $button.parent().find("input").val(newVal);
-    });
-
-
-    //contact form js
-    $(function () {
-        var form = $('#contact-form');
-        var formMessages = $('.form-message');
-        $(form).submit(function (e) {
-            e.preventDefault();
-            var formData = $(form).serialize();
-            $.ajax({
-                type: 'POST',
-                url: $(form).attr('action'),
-                data: formData
-            })
-                .done(function (response) {
-                    $(formMessages).removeClass('error');
-                    $(formMessages).addClass('success');
-                    $(formMessages).text(response);
-                    $('#contact-form input, #contact-form textarea').val('');
-                })
-                .fail(function (data) {
-                    $(formMessages).removeClass('success');
-                    $(formMessages).addClass('error');
-                    if (data.responseText !== '') {
-                        $(formMessages).text(data.responseText);
-                    } else {
-                        $(formMessages).text('Oops! An error occured and your message could not be sent.');
-                    }
-                });
-        });
     });
 
 
@@ -410,6 +342,72 @@ $(function () {
             });
         });
     })
+
+    // scroll up start here
+    $(function () {
+        //Check to see if the window is top if not then display button
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $(".scrollToTop").css({
+                    bottom: "2%",
+                    opacity: "1",
+                    transition: "all .5s ease",
+                });
+            } else {
+                $(".scrollToTop").css({
+                    bottom: "-30%",
+                    opacity: "0",
+                    transition: "all .5s ease",
+                });
+            }
+        });
+        //Click event to scroll to top
+        $(".scrollToTop").on("click", function () {
+            $("html, body").animate(
+                {
+                    scrollTop: 0,
+                },
+                500
+            );
+            return false;
+        });
+    });
+
+
+    // scroll up start here
+    $(function () {
+        //Check to see if the window is top if not then display button
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $(".scrollToTop").css({
+                    bottom: "2%",
+                    opacity: "1",
+                    transition: "all .5s ease",
+                });
+            } else {
+                $(".scrollToTop").css({
+                    bottom: "-30%",
+                    opacity: "0",
+                    transition: "all .5s ease",
+                });
+            }
+        });
+        //Click event to scroll to top
+        $(".scrollToTop").on("click", function () {
+            $("html, body").animate(
+                {
+                    scrollTop: 0,
+                },
+                500
+            );
+            return false;
+        });
+    });
+
+
+
+    // lightcase 
+    $('a[data-rel^=lightcase]').lightcase();
 
 
     // wow animation

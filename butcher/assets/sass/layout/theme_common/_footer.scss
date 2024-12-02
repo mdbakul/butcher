@@ -1,13 +1,26 @@
 .footer {
     @extend %bg-reno, %bg-center, %bg-cover;
+    padding: 60px 0 110px 0;
+
+    @include breakpoint(sm) {
+        @include padding(60px 0 120px 0);
+    }
+
+    @include breakpoint(lg) {
+        @include padding(60px 0 120px 0);
+    }
 
     @include breakpoint(xxxl) {
         @include padding-top(270px);
     }
 
     &__widgets {
-        h6 {
-            @extend %mb-35, %white-color;
+        h4 {
+            @extend %mb-30, %white-color;
+
+            @include breakpoint(max-xl) {
+                @include font-size(25px);
+            }
         }
 
         .footer__logo {
@@ -18,23 +31,36 @@
             .text {
                 p {
                     @extend %white-color;
+
+                    @include breakpoint(esmm) {
+                        @include breakpoint(max-sm) {
+                            max-width: 420px;
+                        }
+                    }
                 }
             }
 
             .socialicon {
-                @extend %mt-30, %flex, %align-items-center;
+                >h6 {
+                    @extend %mt-15, %font1, %mb-10, %text-500, %white-color;
+                    font-size: 18px;
+                }
 
-                a {
-                    @extend %mr-15, %white-color;
-                    line-height: 35px;
+                .icon {
+                    @extend %flex, %align-items-center;
 
-                    &:last-child {
-                        @extend %mr-0;
-                    }
+                    a {
+                        @extend %mr-15, %white-color;
+                        line-height: 35px;
 
-                    &:hover {
-                        i {
-                            @extend %color2;
+                        &:last-child {
+                            @extend %mr-0;
+                        }
+
+                        &:hover {
+                            i {
+                                @extend %color2;
+                            }
                         }
                     }
                 }
@@ -42,6 +68,13 @@
         }
 
         .footer_services {
+            @extend %mt-15;
+
+            @include breakpoint(md) {
+
+                margin-top: 35px;
+            }
+
             @include breakpoint(sm) {
                 padding-left: 60px;
             }
@@ -77,6 +110,11 @@
         }
 
         .footer_contact {
+
+            @include breakpoint(md) {
+                margin-top: 35px;
+            }
+
             ul {
                 @extend %pl-0;
 
@@ -104,13 +142,66 @@
         }
 
         .popular_gallery {
+
+            @extend %mt-10;
+
+            @include breakpoint(md) {
+                margin-top: 35px;
+            }
+
             .innerimg {
-                @extend %b-radius-4;
+                @extend %b-radius-4, %rel;
 
                 img {
                     @extend %wd-100, %b-radius-4;
                 }
+
+                .inneritem {
+                    @extend %abs, %top-50, %left-50, %flex, %align-items-center, %justify-center, %wd-100, %hd-100;
+                    transform: translate(-50%, -50%);
+                    opacity: 0;
+                    @include transition(0.3s ease-in-out);
+
+                    .upitem {
+                        @include transform(translate(51px));
+                        @include transition(0.3s ease-in-out);
+
+                        a {
+                            @extend %bg2, %text-center, %d-inline-block, %w-35, %h-35;
+                            line-height: 34px;
+                            @include border-radius(20px);
+                            @include transition(0.3s ease-in-out);
+
+                            i {
+                                @extend %white-color, %font-size-12;
+                                @include transition(0.3s ease-in-out);
+                            }
+
+                            &:hover {
+                                @extend %bg-white;
+
+                                i {
+                                    @extend %color2;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &:hover {
+                    .inneritem {
+                        @extend %opacity-1;
+
+                        .upitem {
+                            &:nth-child(1) {
+                                @include transform(translate(0px));
+                                @include transition(0.3s ease-in-out);
+                            }
+                        }
+                    }
+                }
             }
+
         }
     }
 
@@ -125,5 +216,4 @@
             }
         }
     }
-
 }

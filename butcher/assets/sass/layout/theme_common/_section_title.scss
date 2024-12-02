@@ -1,11 +1,11 @@
 .section {
     &__title {
         span {
-            @extend %color2, %text-500, %text-uppercase, %d-inline-block;
+            @extend %color2, %text-500, %text-uppercase, %d-inline-block, %font-size-16, %font1;
         }
 
         h3 {
-            @extend %text-600, %font2, %text-capitalize;
+            @extend %text-600, %font2, %text-capitalize, %mb-0;
             line-height: 44px;
         }
 

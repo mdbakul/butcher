@@ -1,11 +1,33 @@
 .banner {
     @extend %rel;
-    @include padding(280px 0 320px 0);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-position: right;
+
+    @include padding(120px 0);
+
+    @include breakpoint(md) {
+        padding: 150px 0 250px 0;
+    }
+
+    @include breakpoint(lg) {
+        padding: (120px 0 310px 0);
+        background-position: center;
+        background-size: cover;
+    }
+
+    @include breakpoint(xl) {
+        @include padding(285px 0 310px 0);
+    }
+
 
     &__content {
+        @include breakpoint(esm) {
+            @include breakpoint(max-sm) {
+                max-width: 350px;
+                margin: auto;
+            }
+        }
+
         h2 {
             @extend %text-600, %my-8, %hidden, %white-color;
             @include font-size(55px);
@@ -14,7 +36,6 @@
                 @include font-size(65px);
                 line-height: 74px;
             }
-
         }
 
         p {
@@ -25,11 +46,49 @@
             }
         }
 
-
     }
 
     &__image {
-        @extend %abs, %bottom-0, %right-12;
+        @extend %d-none;
+
+        @include breakpoint(md) {
+            position: absolute;
+            bottom: -65px;
+            right: -120px;
+            display: block;
+        }
+
+        @include breakpoint(lg) {
+            right: 0;
+            bottom: 0;
+        }
+
+        @include breakpoint(xl) {
+            right: 8%;
+        }
+
+        @include breakpoint(xxxl) {
+            right: 12%;
+        }
+    }
+
+    &__custombtn {
+        @extend %mt-35;
+
+        a {
+            padding: 16px 45px;
+
+            &:before {
+                background: linear-gradient(135deg, rgba(5, 5, 4, 0.90) 0%, rgba(5, 5, 4, 0.90) 50%, rgba(150, 4, 31, 1) 50%, rgba(191, 4, 38, 1) 60%);
+
+            }
+
+            &:hover::before {
+                width: 2.4em;
+                height: 2.4em;
+                @extend %color1;
+            }
+        }
     }
 
 }

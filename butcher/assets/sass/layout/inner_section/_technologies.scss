@@ -72,6 +72,8 @@
     }
 
     &--aboutpage {
-        @include margin-bottom(250px);
+        @include breakpoint(xxxl) {
+            @include margin-bottom(250px);
+        }
     }
 }

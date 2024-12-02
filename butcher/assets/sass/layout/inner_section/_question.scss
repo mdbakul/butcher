@@ -1,16 +1,19 @@
 .question {
-
-    @include padding(120px 0 70px 0);
+    @include padding(120px 0 0 0);
 
     @include breakpoint(xxxl) {
-        @include padding(120px 0 240px 0);
+        @include padding(120px 0 250px 0);
     }
 
     .section__wrapper {
-        max-width: 550px;
+        @include breakpoint(lg) {
+            max-width: 550px;
+        }
     }
 
     &__rightimg {
+        @extend %text-center;
+
         img {
             @extend %b-radius-10;
         }

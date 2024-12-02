@@ -4,18 +4,17 @@
     @include padding(100px 0);
 
     @include breakpoint(xxxl) {
-        @include margin-bottom(500px);
+        @include margin-bottom(510px);
         padding: 100px 0 225px 0;
     }
 
     z-index: 1;
 
-
     &__inner {
         @extend %rel, %b-radius-10, %bg-white, %hidden;
 
         img {
-            @extend %b-radius-10;
+            @extend %b-radius-10, %wd-100;
         }
 
         .text {
@@ -37,15 +36,19 @@
             }
 
             h5 {
-                @extend %white-color, %my-1;
-                font-size: 18px;
+                @extend %mb-0;
+
+                >a {
+                    @extend %white-color, %my-1, %text-none;
+                    font-size: 18px;
+                }
             }
 
             h6 {
-                @extend %white-color;
+                @extend %white-color, %mb-0;
             }
 
-            a {
+            .p_btn {
                 @extend %bg-white, %b-radius-4, %mt-18, %text-center, %pointer, %text-none, %d-inline-block, %color1, %text-600;
                 border: 3px solid transparent;
                 transition: 0.5s;
@@ -67,17 +70,7 @@
                 transform: scale(1.1);
             }
 
-            .text {
-                ul {
-                    li {
-                        i {
-                            @extend %color2;
-                        }
-                    }
-                }
-            }
-
-            a {
+            .p_btn {
                 background: $bg2;
                 @extend %white-color;
 
@@ -96,7 +89,14 @@
     }
 
     &--shopage {
-        @include margin-bottom(1150px);
+
+        @include breakpoint(max-xxxl) {
+            @include padding-bottom(0);
+        }
+
+        @include breakpoint(xxxl) {
+            @include margin-bottom(1130px);
+        }
     }
 
     &__pagi {
@@ -162,16 +162,22 @@
     }
 
     .custom__btn {
-        margin: 50px auto 0 auto;
-        width: 200px;
-        @extend %bg1;
+        @extend %text-center, %mt-40;
+
+        &.custombtn {
+            padding: 16px 20px;
+        }
     }
 }
 
 
 
 .shopdetails {
-    @include padding(120px 0 50px 0);
+    padding: 100px 0 50px 0;
+
+    @include breakpoint(sm) {
+        @include padding(120px 0 50px 0);
+    }
 
     &__innerthumb {
         @extend %hidden, %text-center;
@@ -182,15 +188,19 @@
     }
 
     &__smallthumb {
+        @extend %b-radius-10;
+
         img {
-            @extend %wd-100;
+            @extend %wd-100, %b-radius-10;
             cursor: pointer;
         }
     }
 
     &__content {
-        max-width: 600px;
-        margin-left: auto;
+        @include breakpoint(lg) {
+            max-width: 600px;
+            margin-left: auto;
+        }
 
         h6 {
             @include font-size(16px);
@@ -206,19 +216,19 @@
             @extend %flex, %align-items-center;
 
             p {
-                @extend %my-0, %text-capitalize, %mr-5, %black-color, %text-600;
+                @extend %my-0, %text-capitalize, %font2, %mr-5, %black-color, %text-600;
             }
 
             span {
                 i {
                     @include font-size(12px);
-                    @extend %color1;
+                    @extend %color2;
                     margin-right: 2px;
                 }
             }
 
             a {
-                @extend %ml-5, %text-none;
+                @extend %ml-5, %text-none, %font2;
                 color: #707070;
             }
         }
@@ -229,13 +239,13 @@
         }
 
         ul {
-            @extend %mp-0;
+            @extend %mp-0, %pl-0;
 
             li {
                 @extend %list-none, %mb-10;
 
                 i {
-                    @extend %color1, %mr-5;
+                    @extend %color2, %mr-5;
                 }
 
                 &:last-child {
@@ -249,6 +259,10 @@
             %align-items-center;
             @include margin-top(40px);
             gap: 20px;
+
+            @include breakpoint(max-esmm) {
+                justify-content: center;
+            }
 
             .cart-plus-minus {
                 @extend %flex, %align-items-center;
@@ -279,21 +293,25 @@
             }
 
             form {
-                width: 200px;
 
                 input {
                     background: #fafafa;
                     border: 1px solid #a2a2a24f;
                     @include padding(13px);
+                    width: 140px;
                 }
             }
 
             a {
-                @extend %d-block;
+                @extend %d-block, %text-none, %bg2, %white-color;
+                @include padding(15px 50px);
 
-                @include breakpoint(xl) {
-                    @include padding(0px 142px);
-                    display: inline-block;
+                @include breakpoint(max-esmm) {
+                    width: 100%;
+                }
+
+                @include breakpoint(lg) {
+                    @include padding(15px 114px);
                 }
 
                 @extend %mt-0, %text-center;
@@ -302,24 +320,35 @@
     }
 
     &__wrapper {
-        border: 1px solid #F1F1F1;
-        @include padding(20px);
+        @include breakpoint(lg) {
+            border: 1px solid #F8F5F0;
+            @include padding(20px);
+        }
     }
 }
 
 
 .cartdesk {
-    @include breakpoint(max-sm) {
-        @include padding-bottom(200px);
+
+    @include breakpoint(xxxl) {
+        @include margin-bottom(250px);
     }
 
     &__innerborder {
-        border: 1px solid #F1F1F1;
+
+        @include breakpoint(sm) {
+            border: 1px solid #F8F5F0;
+        }
     }
 
     &__item {
-        border-bottom: 1px solid #F1F1F1;
-        @extend %mb-30, %pb-30;
+        border-bottom: 1px solid #F8F5F0;
+
+        @extend %py-25;
+
+        &:last-child {
+            border: none;
+        }
     }
 
     &__img {
@@ -348,13 +377,15 @@
             }
 
             .allstar {
+                @extend %bg2, %px-10, %py-2, %b-radius-5;
+
                 @include breakpoint(max-esm) {
                     @include margin-top(5px);
                 }
 
                 .star {
                     i {
-                        @extend %color1,
+                        @extend %white-color,
                         %mp-0,
                         %d-inline-block;
                         @include font-size(13px);
@@ -364,7 +395,7 @@
         }
 
         .destext {
-            @extend %mt-5;
+            @extend %mt-6;
 
             p {
                 max-width: 649px;
@@ -381,14 +412,14 @@
                 .nav-link {
                     @extend %border-none,
                     %text-capitalize,
-                    %color1,
-                    %text-600, %bg2;
+                    %black-color,
+                    %text-600, %font2;
+                    background: #F8F5F0;
                     @include padding(15px 50px);
                     @include border-radius(0px);
 
                     &.active {
-                        @extend %bg2,
-                        %white-color;
+                        @extend %bg2, %white-color;
                     }
                 }
             }
@@ -397,14 +428,14 @@
 
     &__content {
         ul {
-            @extend %mp-0;
+            @extend %mp-0, %pl-0;
 
             li {
                 @include margin-bottom(5px);
                 @extend %list-none;
 
                 i {
-                    @extend %color1, %mr-10;
+                    @extend %color2, %mr-10;
                 }
             }
         }
@@ -422,5 +453,4 @@
             transform: translateX(-50%);
         }
     }
-
 }

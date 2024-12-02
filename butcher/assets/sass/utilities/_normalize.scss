@@ -28,7 +28,6 @@ textarea {
 	line-height: 1.5;
 	@extend %font1;
 	background: #FBFAFA;
-	overflow-x: hidden !important;
 }
 
 h1,
@@ -55,8 +54,7 @@ a h6 {
 	font-family: $font2;
 	@extend %text-capitalize, %title-color;
 	@include transition($transition);
-	margin: 0;
-	padding: 0;
+
 }
 
 h1 {
@@ -83,7 +81,7 @@ h6 {
 	@include font-size($fs-h6);
 }
 
-span,
+
 p {
 	margin-bottom: 0px;
 	font-weight: 400;
@@ -132,8 +130,6 @@ select {
 }
 
 ul {
-	margin: 0;
-	padding: 0;
 
 	li {
 		a {

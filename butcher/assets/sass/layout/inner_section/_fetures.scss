@@ -1,10 +1,19 @@
 .feture {
+    @include margin-top(120px);
 
-    @extend %mt-100;
+    @include breakpoint(lg) {
+        position: relative;
+        margin-top: -100px;
+    }
+
+    @include breakpoint(xl) {
+        margin-top: -130px;
+    }
+
 
     @include breakpoint(xxxl) {
-        position: relative;
-        margin-top: -120px;
+
+        margin-top: -160px;
     }
 
     &__item {
@@ -34,11 +43,64 @@
 
     }
 
+    &__section {
+
+        h3 {
+
+            @include breakpoint(lg) {
+                @include breakpoint(max-xl) {
+                    max-width: 280px;
+                }
+            }
+
+            @include breakpoint(xl) {
+                @include breakpoint(max-xxl) {
+                    max-width: 310px;
+                }
+            }
+
+            @include breakpoint(max-lg) {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+
+    .slick-prev,
+    .slick-next {
+        display: none !important;
+
+        @include breakpoint(xl) {
+            display: block !important;
+            top: 135px;
+        }
+
+        @include breakpoint(xxl) {
+            top: 120px;
+        }
+    }
+
     .slick-prev {
-        left: -45% !important;
+        @include breakpoint(xl) {
+            left: -390px !important;
+
+        }
+
     }
 
     .slick-next {
-        left: -35% !important;
+        @include breakpoint(xl) {
+            left: -315px !important;
+
+        }
+    }
+
+    .slick-prev::before,
+    .slick-next::before {
+        @extend %color2;
+
+        @include breakpoint(xl) {
+            font-size: 70px;
+        }
     }
 }

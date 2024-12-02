@@ -11,12 +11,13 @@
 
             h2 {
                 @include font-size(48px);
-                @extend %mb-0, %text-500;
+                @extend %mb-0, %text-600, %font1;
+                font-style: normal;
 
                 span {
                     @extend %white-color,
                     %mb-0,
-                    %text-700, %pt-2, %pb-8;
+                    %text-700, %pt-2, %pb-5;
                     @include font-size(48px);
                 }
             }
@@ -28,7 +29,19 @@
         }
 
         h6 {
-            @extend %white-color, %font2, %text-800;
+            @extend %white-color, %font2, %text-800, %mb-0;
+
+            @include breakpoint(max-lg) {
+                font-size: 18px;
+            }
         }
     }
+
+    &.light-color {
+        &::after {
+            background: linear-gradient(0deg, rgba(5, 5, 4, 0.85) 0%, rgba(5, 5, 4, 0.85) 100%);
+        }
+
+    }
+
 }

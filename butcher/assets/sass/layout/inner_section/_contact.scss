@@ -1,51 +1,50 @@
 .contact {
-    &__details {
-        ul {
-            @extend %pl-0, %mt-25;
+    &__inner {
+        @extend %text-center, %b-radius-5, %px-15, %py-50;
+        background: #F8F5F0;
 
-            li {
-                @extend %list-none, %flex, %gap-15, %mb-18;
+        @include breakpoint(lg) {
+            padding-inline: 30px;
+        }
 
-                .icon {
-                    @extend %w-35, %h-35, %bg2, %text-center, %b-radius-17;
-                    line-height: 35px;
-                }
+        .text {
+            @extend %mt-20;
 
-                .text {
-                    width: calc(100% - 50px);
+            p {
+                max-width: 300px;
+                margin: auto;
 
-                    span {
-                        @extend %d-inline-block;
-                        line-height: 24px;
-
-                        @include breakpoint(sm) {
-                            width: 195px;
-                        }
-                    }
-                }
-
-                &:last-child {
-                    @extend %mb-0;
+                span {
+                    @extend %color2, %text-500, %font-size-16;
                 }
             }
+
         }
+
+    }
+
+    &__wrapper {
+        @extend %mt-50;
     }
 }
-
 
 .book {
     @extend %bg-reno-im, %bg-center-im, %bg-cover-im;
 
     &__form {
         @extend %bg2, %b-radius-10;
-        padding: 20px 10px;
+        padding: 30px 10px;
 
         @include breakpoint(sm) {
             padding: 40px 30px;
         }
 
         h3 {
-            @extend %mb-40, %white-color;
+            @extend %mb-30, %white-color;
+
+            @include breakpoint(sm) {
+                margin-bottom: 40px;
+            }
 
             @include breakpoint(xl) {
                 width: 60%;
@@ -59,12 +58,19 @@
         }
 
         button {
-            @extend %white-color, %text-500;
+            @extend %white-color, %text-500, %font2;
+            width: 230px;
+            height: 56px;
         }
     }
 }
 
 .map {
+
+    @include breakpoint(xxxl) {
+        @include margin-bottom(250px);
+    }
+
     iframe {
         @extend %wd-100;
         min-height: 600px;
