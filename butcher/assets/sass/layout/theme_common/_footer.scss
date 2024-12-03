@@ -16,7 +16,11 @@
 
     &__widgets {
         h4 {
-            @extend %mb-30, %white-color;
+            @extend %mb-20, %white-color;
+
+            @include breakpoint(sm) {
+                margin-bottom: 30px;
+            }
 
             @include breakpoint(max-xl) {
                 @include font-size(25px);
@@ -67,20 +71,15 @@
             }
         }
 
-        .footer_services {
-            @extend %mt-15;
-
-            @include breakpoint(md) {
-
-                margin-top: 35px;
-            }
+        .footer_products {
+            margin-top: 30px;
 
             @include breakpoint(sm) {
                 padding-left: 60px;
             }
 
             ul {
-                @extend %flex, %mp-0, %pl-0;
+                @extend %flex, %mp-0, %pl-0, %mb-0;
                 flex-direction: column;
                 gap: 18px;
 
@@ -110,10 +109,7 @@
         }
 
         .footer_contact {
-
-            @include breakpoint(md) {
-                margin-top: 35px;
-            }
+            margin-top: 30px;
 
             ul {
                 @extend %pl-0;
@@ -142,12 +138,7 @@
         }
 
         .popular_gallery {
-
-            @extend %mt-10;
-
-            @include breakpoint(md) {
-                margin-top: 35px;
-            }
+            margin-top: 30px;
 
             .innerimg {
                 @extend %b-radius-4, %rel;

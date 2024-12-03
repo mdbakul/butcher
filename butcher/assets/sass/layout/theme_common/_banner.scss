@@ -3,9 +3,10 @@
     background-repeat: no-repeat;
     background-position: right;
 
+
     @include padding(120px 0);
 
-    @include breakpoint(md) {
+    @include breakpoint(lg) {
         padding: 150px 0 250px 0;
     }
 
@@ -17,33 +18,29 @@
 
     @include breakpoint(xl) {
         @include padding(285px 0 310px 0);
+        margin-top: -180px;
     }
 
 
     &__content {
-        @include breakpoint(esm) {
-            @include breakpoint(max-sm) {
-                max-width: 350px;
-                margin: auto;
-            }
-        }
 
         h2 {
             @extend %text-600, %my-8, %hidden, %white-color;
-            @include font-size(55px);
+            @include font-size(48px);
+
+            @include breakpoint(md) {
+                @include font-size(65px);
+            }
 
             @include breakpoint(xl) {
-                @include font-size(65px);
                 line-height: 74px;
             }
         }
 
         p {
             @extend %white-color, %mt-15;
+            max-width: 550px;
 
-            @include breakpoint(sm) {
-                width: 88%;
-            }
         }
 
     }
@@ -51,24 +48,26 @@
     &__image {
         @extend %d-none;
 
-        @include breakpoint(md) {
+        @include breakpoint(lg) {
+            right: -6%;
+            bottom: 0;
             position: absolute;
-            bottom: -65px;
-            right: -120px;
             display: block;
         }
 
-        @include breakpoint(lg) {
-            right: 0;
-            bottom: 0;
-        }
-
         @include breakpoint(xl) {
-            right: 8%;
+            right: 6%;
         }
 
         @include breakpoint(xxxl) {
             right: 12%;
+        }
+
+        img {
+
+            @include breakpoint(max-xl) {
+                width: 90%;
+            }
         }
     }
 

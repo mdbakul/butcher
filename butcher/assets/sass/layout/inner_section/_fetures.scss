@@ -19,6 +19,10 @@
     &__item {
         @extend %rel, %hidden, %b-radius-10;
 
+        img {
+            @extend %wd-100;
+        }
+
         .title {
             @extend %abs, %bottom-10, %left-50;
             transform: translateX(-50%);
@@ -26,6 +30,8 @@
 
             h5 {
                 @extend %white-color;
+
+
             }
         }
 
@@ -49,20 +55,28 @@
 
             @include breakpoint(lg) {
                 @include breakpoint(max-xl) {
-                    max-width: 280px;
+                    max-width: 240px;
+                    font-size: 28px;
                 }
             }
 
             @include breakpoint(xl) {
-                @include breakpoint(max-xxl) {
-                    max-width: 310px;
+                @include breakpoint(max-xxxl) {
+                    max-width: 250px;
+                    font-size: 28px;
                 }
             }
+
 
             @include breakpoint(max-lg) {
                 margin-bottom: 30px;
             }
         }
+    }
+
+    &__wrapper {
+        margin-left: -10px;
+        margin-right: -10px;
     }
 
 
@@ -72,27 +86,34 @@
 
         @include breakpoint(xl) {
             display: block !important;
-            top: 135px;
+            top: 100px;
         }
 
-        @include breakpoint(xxl) {
+        @include breakpoint(xxxl) {
             top: 120px;
         }
     }
 
     .slick-prev {
         @include breakpoint(xl) {
-            left: -390px !important;
+            left: -368px !important;
+        }
 
+        @include breakpoint(xxxl) {
+            left: -432px !important;
         }
 
     }
 
     .slick-next {
         @include breakpoint(xl) {
-            left: -315px !important;
-
+            left: -292px !important;
         }
+
+        @include breakpoint(xxxl) {
+            left: -345px !important;
+        }
+
     }
 
     .slick-prev::before,

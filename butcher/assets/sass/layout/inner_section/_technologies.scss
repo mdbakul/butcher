@@ -30,7 +30,11 @@
         flex-direction: column;
 
         .item {
-            @extend %flex, %align-items-center, %gap-25;
+            @extend %flex, %align-items-center, %gap-15;
+
+            @include breakpoint(sm) {
+                gap: 25px;
+            }
 
             .thumb {
                 @extend %bg2, %w-70, %h-70, %text-center;

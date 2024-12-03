@@ -1,11 +1,11 @@
 // header nav here
 .header {
     @include breakpoint(xl) {
-        top: 0;
-        left: 0%;
-        width: 100%;
-        z-index: 999;
-        position: absolute;
+        position: relative;
+        max-width: 1400px;
+        margin: auto;
+        box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
+        z-index: 9999;
     }
 
     &__top {
@@ -127,7 +127,7 @@
 
             @include breakpoint(xxxl) {
                 border-bottom: 1px solid #EFEFEF;
-                left: -52px;
+                left: 0px;
             }
         }
     }
@@ -137,6 +137,22 @@
 
         @include breakpoint(xl) {
             padding: 14px 0;
+        }
+
+        &.header-fixed {
+            @extend %transition2;
+
+            @include breakpoint(xl) {
+                top: 0;
+                width: 100% !important;
+                position: fixed;
+                max-width: inherit;
+                z-index: 99999;
+                box-shadow: 1px 1px 11px 3px rgba(215, 215, 215, 0.4);
+                @include padding(10px 20px);
+
+            }
+
         }
     }
 
@@ -207,13 +223,13 @@
 
     &__mobilebar {
         .tp-menu-bar {
-            @extend %w-50, %pointer, %h-50, %bg2, %text-center;
+            @extend %w-50, %pointer, %h-50, %text-center;
             line-height: 59px;
         }
 
         i {
-            @extend %white-color, %pointer;
-            @include font-size(25px);
+            @extend %pointer, %color2;
+            @include font-size(30px);
         }
     }
 
@@ -394,39 +410,6 @@
 
         @include breakpoint(xl) {
             margin-left: 0px;
-        }
-    }
-
-    &__fixed {
-        .header__bottom {
-            &.header-fixed {
-                @extend %transition2;
-
-                @include breakpoint(xl) {
-                    background: #fff;
-                    top: 0;
-                    position: fixed;
-                    z-index: 9999;
-                    width: 100%;
-                    left: 50%;
-                    box-shadow: 1px 1px 11px 3px rgba(215, 215, 215, 0.4);
-                    transition: all 0.5s ease;
-                    padding: 10px 210px;
-                    @include padding(10px 60px);
-                    left: 0;
-
-                }
-
-                @include breakpoint(xxxl) {
-                    @include padding(10px 100px);
-                }
-
-                @include breakpoint(xxxxxl) {
-                    padding: 10px 210px;
-                }
-
-            }
-
         }
     }
 

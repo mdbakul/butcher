@@ -6,7 +6,10 @@
 
         h3 {
             @extend %text-600, %font2, %text-capitalize, %mb-0;
-            line-height: 44px;
+
+            @include breakpoint(md) {
+                line-height: 44px;
+            }
         }
 
         p {

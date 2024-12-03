@@ -3,9 +3,6 @@
         @extend %text-center, %b-radius-5, %px-15, %py-50;
         background: #F8F5F0;
 
-        @include breakpoint(lg) {
-            padding-inline: 30px;
-        }
 
         .text {
             @extend %mt-20;

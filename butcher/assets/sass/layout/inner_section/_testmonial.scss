@@ -68,6 +68,8 @@
 
     &__wrapper {
         margin-top: 50px;
+        margin-left: -10px;
+        margin-right: -10px;
 
         @include breakpoint(xxxl) {
             position: absolute;
@@ -93,11 +95,11 @@
         }
 
         @include breakpoint(xl) {
-            left: 940px !important;
+            left: 950px !important;
         }
 
         @include breakpoint(xxxl) {
-            left: 1140px !important;
+            left: 1150px !important;
         }
 
     }
@@ -108,11 +110,11 @@
         }
 
         @include breakpoint(xl) {
-            left: 1020px !important;
+            left: 1040px !important;
         }
 
         @include breakpoint(xxxl) {
-            left: 1230px !important;
+            left: 1236px !important;
         }
     }
 

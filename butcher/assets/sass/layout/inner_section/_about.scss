@@ -4,7 +4,7 @@
             url('..//..//..//img/home1/about/bgbottomleft.png'),
             url('..//..//..//img/home1/about/bgbottomright.png');
 
-        background-position: 100% 0%, 0% 100%, 123% 105%;
+        background-position: 100% 0%, 0% 100%, 120% 105%;
         background-repeat: no-repeat;
     }
 
@@ -22,9 +22,9 @@
         background-position: 100% 0%, 0% 100%, 102% 105%;
     }
 
-    .container-xl {
+    .container {
         >.row {
-            @include breakpoint(max-lg) {
+            @include breakpoint(max-xl) {
                 flex-direction: column-reverse;
             }
         }
@@ -41,11 +41,16 @@
         .section {
             p {
                 @extend %mt-25;
+
+                @include breakpoint(max-xl) {
+                    max-width: 670px;
+                }
+
             }
 
             h3 {
-                @include breakpoint(md) {
-                    @include breakpoint(max-lg) {
+                @include breakpoint(sm) {
+                    @include breakpoint(max-xl) {
                         max-width: 400px;
                     }
                 }
@@ -76,28 +81,68 @@
     }
 
     &__allitem {
-        @extend %flex, %mt-45;
-        flex-direction: column;
+        @extend %flex, %mt-45, %gap-25;
 
-        @include breakpoint(sm) {
-            flex-direction: row;
-            align-items: center;
+        @include breakpoint(lg) {
+            gap: 40px;
         }
-
-        max-width: 540px;
-
-        gap: 35px 0;
 
         .item {
             @extend %flex, %gap-20, %align-items-center;
 
-            @include breakpoint(sm) {
-                width: 45%;
+            .icon {
+                @extend %w-60, %h-60, %b-radius-30, %text-center;
+                background: #FAE2E4;
+                line-height: 60px;
             }
 
-            @include breakpoint(md) {
-                width: 50%;
+            h6 {
+                @include breakpoint(xl) {
+                    max-width: 150px;
+                }
+
             }
+
+            .custom__btn {
+                margin-top: 0 !important;
+            }
+
+            .text {
+                h6 {
+                    @extend %wd-100, %font1, %color2;
+                }
+            }
+        }
+
+        &--aboutitem2 {
+
+            @include breakpoint(md) {
+                @include breakpoint(max-lg) {
+                    gap: 40px !important;
+                }
+            }
+
+            @include breakpoint(lg) {
+                @include breakpoint(max-xl) {
+                    gap: 30px !important;
+                }
+            }
+        }
+    }
+
+    &__contactnumber {
+        @extend %flex, %mt-45, %gap-25;
+
+        @include breakpoint(max-sm) {
+            flex-direction: column;
+        }
+
+        @include breakpoint(sm) {
+            gap: 45px;
+        }
+
+        .item {
+            @extend %flex, %gap-20, %align-items-center;
 
             .icon {
                 @extend %w-60, %h-60, %b-radius-30, %text-center;
@@ -124,19 +169,12 @@
         }
     }
 
+
     &__innerimg {
         @extend %rel, %mr-0;
 
         @include breakpoint(xl) {
             margin-right: 30px;
-        }
-
-        .organicsel {
-            @extend %abs, %top-0, %right-18;
-
-            @include breakpoint(lg) {
-                right: 0;
-            }
         }
 
         &--innerimg2 {
@@ -190,10 +228,10 @@
         }
 
 
-        .container-xl {
+        .container {
             >.row {
-                @include breakpoint(max-lg) {
-                    flex-direction: column;
+                @include breakpoint(max-xl) {
+                    flex-direction: row;
                 }
             }
         }
